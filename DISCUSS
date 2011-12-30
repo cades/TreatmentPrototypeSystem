@@ -1,20 +1,23 @@
-³o¥÷¤å¥ó®³¨Ó°µ¯d¨¥ªO/°Q½×¦ê¥Î§a¡I·Q­n§i¶D¹Ù¦ñ¤°»ò´N¼g¦b¤U¤è¡A¤£­n§â¤W­±ªº§R±¼­ò¡I¡I
-ªş¤W®É¶¡¤é´Á·|§ó¦n­ò^___^
+ï¿½oï¿½ï¿½ï¿½ó®³¨Ó°ï¿½ï¿½dï¿½ï¿½ï¿½O/ï¿½Qï¿½×¦ï¿½Î§aï¿½Iï¿½Qï¿½nï¿½iï¿½Dï¿½Ù¦ñ¤°»ï¿½Nï¿½gï¿½bï¿½Uï¿½ï¿½Aï¿½ï¿½ï¿½nï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½ï¿½Iï¿½I
+ï¿½ï¿½ï¿½Wï¿½É¶ï¿½ï¿½ï¿½ï¿½|ï¿½ï¿½nï¿½ï¿½^___^
 
 
-Title:Ãö©ó³]­pªº¤@¨Ç·Qªk
-§Ú±Ä¥ÎÄ~©Óªº¤è¦¡¹ê§@¬İ¶E¦Cªí»PÀË¬d¦Cªí¡A¦®¦b±j¤Æµ{¦¡½Xªº¥iÅª©Ê¡C
-¥H¬İ¶E¦Cªí¬°¨Ò¡A¥¦¥u¦³2¦æ¡G
+Title:ï¿½ï¿½ï¿½]ï¿½pï¿½ï¿½ï¿½@ï¿½Ç·Qï¿½k
+ï¿½Ú±Ä¥ï¿½ï¿½~ï¿½Óªï¿½ï¿½è¦¡ï¿½ï¿½@ï¿½İ¶Eï¿½Cï¿½ï¿½Pï¿½Ë¬dï¿½Cï¿½ï¿½Aï¿½ï¿½ï¿½bï¿½jï¿½Æµ{ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½iÅªï¿½Ê¡C
+ï¿½Hï¿½İ¶Eï¿½Cï¿½ï¿½ï¿½Ò¡Aï¿½ï¿½ï¿½uï¿½ï¿½2ï¿½ï¿½G
 
 1 import java.util.ArrayList;
 2 public class DiagnosisList extends ArrayList<DiagnosisRecord> {}
 
-µM¦Ó¦p¦¹¤@¨Ó¡AÂå¥Íªº¨p¦³ÅÜ¼Æ¬İ¶E¦Cªí±q
+ï¿½Mï¿½Ó¦pï¿½ï¿½ï¿½@ï¿½Ó¡Aï¿½ï¿½Íªï¿½ï¿½pï¿½ï¿½ï¿½Ü¼Æ¬İ¶Eï¿½Cï¿½ï¿½q
 private ArrayList<DiagnosisRecord> diagnosisList;
-ÅÜ¦¨¡G
+ï¿½Ü¦ï¿½ï¿½G
 private DiagnosisList diagnosisList;
 
 
-°Ñ¦Ò¸ê®Æ¡Ghttp://stackoverflow.com/questions/1195206/is-there-a-java-equivalent-or-methodology-for-the-typedef-keyword-in-c
+ï¿½Ñ¦Ò¸ï¿½Æ¡Ghttp://stackoverflow.com/questions/1195206/is-there-a-java-equivalent-or-methodology-for-the-typedef-keyword-in-c
 
-2011.12.30 1:36PM, by§»¥ô
+2011.12.30 1:36PM, byï¿½ï¿½ï¿½ï¿½
+
+çœ‹è¨ºè¨˜éŒ„è·Ÿçœ‹è¨ºåˆ—è¡¨ï¼Œå…©å€‹æ‰€è¨˜çš„æ±è¥¿ä¸å¤ªä¸€æ¨£å§?
+2011.12.30
