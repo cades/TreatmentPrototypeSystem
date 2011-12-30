@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 import javax.swing.event.*;
-public class Inspector extends JFrame {
+public class Inspector extends Staff {
 	LoginFrame loginFrame;
 	JButton actionButton,logoutButton;
 	public Inspector(LoginFrame loginFrame){

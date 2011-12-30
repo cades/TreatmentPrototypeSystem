@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 import javax.swing.event.*;
-public class CounterStaff extends JFrame {
+public class CounterStaff extends Staff {
 	LoginFrame loginFrame;
 	JButton actionButton,logoutButton;
 	public CounterStaff(LoginFrame loginFrame){

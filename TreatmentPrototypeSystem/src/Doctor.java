@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 import javax.swing.event.*;
-public class Doctor extends JFrame {
+public class Doctor extends Staff {
 	LoginFrame loginFrame;
 	JButton actionButton,logoutButton;
 	public Doctor(LoginFrame loginFrame){
