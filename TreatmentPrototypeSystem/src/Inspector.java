@@ -47,10 +47,6 @@ public class Inspector extends Staff {
 		System.out.println("[檢查人員] 觀看病人檢查項目");
 	}
 
-	public void logout(){
-		this.dispose();
-		new LoginFrame();
-	}
 	private void button_actionPerformed(ActionEvent e) {
 	    if (e.getSource().equals(actionButton)) {
 	    	unNameAction1();

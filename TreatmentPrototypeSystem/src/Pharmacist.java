@@ -47,10 +47,6 @@ public class Pharmacist extends Staff {
 		System.out.println("[藥劑師] 確認病人是否已批價");
 	}
 
-	public void logout(){
-		this.dispose();
-		new LoginFrame();
-	}
 	private void button_actionPerformed(ActionEvent e) {
 	    if (e.getSource().equals(actionButton)) {
 	    	dispense();

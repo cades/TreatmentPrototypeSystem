@@ -56,10 +56,6 @@ public class Doctor extends Staff {
 		System.out.println("[醫生] 開藥單");
 	}
 
-	public void logout(){
-		this.dispose();
-		new LoginFrame();
-	}
 	private void button_actionPerformed(ActionEvent e) {
 	    if (e.getSource().equals(actionButton)) {
 	    	makePatientLiveInHospital();

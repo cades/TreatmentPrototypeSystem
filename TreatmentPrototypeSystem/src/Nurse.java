@@ -47,10 +47,6 @@ public class Nurse extends Staff {
 		System.out.println("[護士] 安排檢查程序");
 	}
 
-	public void logout(){
-		this.dispose();
-		new LoginFrame();
-	}
 	private void button_actionPerformed(ActionEvent e) {
 	    if (e.getSource().equals(actionButton)) {
 	    	printPrescriptions();

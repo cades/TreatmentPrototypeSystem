@@ -12,5 +12,7 @@ public class Staff extends JFrame {
 		
 	}
 	public void logout(){
-	}
+        this.dispose();
+        new LoginFrame();
+    }
 }

@@ -56,10 +56,6 @@ public class CounterStaff extends Staff {
 		System.out.println("[櫃台人員] 辦理出院");
 	}
 
-	public void logout(){
-		this.dispose();
-		new LoginFrame();
-	}
 	private void button_actionPerformed(ActionEvent e) {
 	    if (e.getSource().equals(actionButton)) {
 	    	unNameAction1();
