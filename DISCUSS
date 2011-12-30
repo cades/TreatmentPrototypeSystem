@@ -1,0 +1,20 @@
+這份文件拿來做留言板/討論串用吧！想要告訴夥伴什麼就寫在下方，不要把上面的刪掉唷！！
+附上時間日期會更好唷^___^
+
+
+Title:關於設計的一些想法
+我採用繼承的方式實作看診列表與檢查列表，旨在強化程式碼的可讀性。
+以看診列表為例，它只有2行：
+
+1 import java.util.ArrayList;
+2 public class DiagnosisList extends ArrayList<DiagnosisRecord> {}
+
+然而如此一來，醫生的私有變數看診列表從
+private ArrayList<DiagnosisRecord> diagnosisList;
+變成：
+private DiagnosisList diagnosisList;
+
+
+參考資料：http://stackoverflow.com/questions/1195206/is-there-a-java-equivalent-or-methodology-for-the-typedef-keyword-in-c
+
+2011.12.30 1:36PM, by宏任
