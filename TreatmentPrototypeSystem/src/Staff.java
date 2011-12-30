@@ -1,10 +1,8 @@
 
 public class Staff {
-    public void login(String account, String password) {
-        
-    };
-    
-    public void logout() {
-        
-    };
+	public void login(String id , String password){
+		
+	}
+	public void logout(){
+	}
 }
