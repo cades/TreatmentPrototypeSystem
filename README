@@ -1,3 +1,19 @@
-newdata
-ohohoh
-hello world
+git clone/pull取得repo後，匯入eclips專案的步驟：
+File->import->選擇Existing Projects into Workspace->按next->選Test/TreatmentPrototypeSystem->按next
+
+
+中英對照
+
+醫療雛形系統	TreatmentPrototypeSystem
+員工		staff
+醫生		doctor
+護士		nurse
+藥劑師		pharmacist
+檢查人員		inspector
+櫃檯人員		counter staff
+看診		diagnosis
+看診列表		diagnosis list
+看診記錄		diagnosis record
+檢查處		inspection room
+檢查列表		inspection list
+病房		ward
