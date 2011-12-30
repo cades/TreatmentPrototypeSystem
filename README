@@ -1,18 +1,19 @@
-git clone/pull¨ú±orepo«á¡A¶×¤Jeclips±M®×ªº¨BÆJ¡G
-File->import->¿ï¾ÜExisting Projects into Workspace->«önext->¿ïTest/TreatmentPrototypeSystem->«önext
+git clone/pullå–å¾—repoå¾Œï¼ŒåŒ¯å…¥eclipså°ˆæ¡ˆçš„æ­¥é©Ÿï¼š
+File->import->é¸æ“‡Existing Projects into Workspace->æŒ‰next->é¸Test/TreatmentPrototypeSystem->æŒ‰next
 
 
-¤¤­^¹ï·Ó
+ä¸­è‹±å°ç…§
 
-ÂåÀøÂú§Î¨t²Î	TreatmentPrototypeSystem
-­û¤u		staff
-Âå¥Í		doctor
-Å@¤h		nurse
-ÃÄ¾¯®v		pharmacist
-ÀË¬d¤H­û		inspector
-ÂdÂi¤H­û		counter staff
-¬İ¶E		diagnosis
-¬İ¶E¦Cªí		diagnosis list
-¬İ¶E°O¿ı		diagnosis record
-ÀË¬d³B		inspection room
-ÀË¬d¦Cªí		inspection list
+é†«ç™‚é››å½¢ç³»çµ±	TreatmentPrototypeSystem
+å“¡å·¥		staff
+é†«ç”Ÿ		doctor
+è­·å£«		nurse
+è—¥åŠ‘å¸«		pharmacist
+æª¢æŸ¥äººå“¡		inspector
+æ«ƒæª¯äººå“¡		counter staff
+çœ‹è¨º		diagnosis
+çœ‹è¨ºåˆ—è¡¨		diagnosis list
+çœ‹è¨ºè¨˜éŒ„		diagnosis record
+æª¢æŸ¥è™•		inspection room
+æª¢æŸ¥åˆ—è¡¨		inspection list
+ç—…æˆ¿		ward
