@@ -7,6 +7,8 @@ public class Hospital {
     Vector<Pharmacist> pharmacistVec;
     Vector<CounterStaff> counterStaffVec;
     
+    InspectionRoom inspectionRoom;
+    
     public Hospital() {
         doctorVec = new Vector<Doctor>();
         nurseVec = new Vector<Nurse>();
