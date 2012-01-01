@@ -58,19 +58,19 @@ public class LoginFrame extends JFrame{
 	    		new Doctor(this);
 	    		this.dispose();
 	    		JOptionPane.showMessageDialog(null, "判斷帳號為醫生。登入！" );
-	    	}else if(id.getText().startsWith("n")){
+	    	}else if(id.getText().startsWith("N")){
 	    		new Nurse(this);
 	    		JOptionPane.showMessageDialog(null, "判斷帳號為護士。登入！" );
 	    		this.dispose();
-	    	}else if(id.getText().startsWith("p")){
+	    	}else if(id.getText().startsWith("P")){
 	    		new Pharmacist(this);
 	    		JOptionPane.showMessageDialog(null, "判斷帳號為藥劑師。登入！" );
 	    		this.dispose();
-	    	}else if(id.getText().startsWith("c")){
+	    	}else if(id.getText().startsWith("C")){
 	    		new CounterStaff(this);
 	    		JOptionPane.showMessageDialog(null, "判斷帳號為櫃台人員。登入！" );
 	    		this.dispose();
-	    	}else if(id.getText().startsWith("i")){
+	    	}else if(id.getText().startsWith("I")){
 	    		new Inspector(this);
 	    		JOptionPane.showMessageDialog(null, "判斷帳號為檢查人員。登入！" );
 	    		this.dispose();
