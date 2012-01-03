@@ -1,16 +1,22 @@
 package control;
 
-import storage.staff.*;
-import storage.patient.*;
+import storage.staff.Staff;
+import storage.patient.Patient;
+import storage.patient.PatientStorage;
 
 public class GetPatientsData {
-    StaffStorage staffs;
+    PatientStorage patients;
     
 
-    public void setEntity(StaffStorage staffs) { this.staffs = staffs; }
-    // 回傳值當然不能是void，先檔一下
-    // 新議題：如何讓醫生跟櫃檯看到不一樣的東西？（權限）
-    public void getData(Staff aStaff, String patientId) {
-        
+    public void setEntity(PatientStorage staffs) { this.patients = patients; }
+
+    public Patient getData(Staff aStaff, String patientId) {
+        switch (aStaff.occupation()) { //只有這兩個職業可以看病人個資
+        case counterStaff:
+        case doctor:
+            return patients.get(patientId);
+        default:
+            return null;
+        }
     }
 }

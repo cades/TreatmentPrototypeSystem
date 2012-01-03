@@ -1,4 +1,7 @@
 
+
+
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -6,6 +9,7 @@ import javax.swing.*;
 import javax.swing.event.*;
 
 import control.*;
+import storage.patient.*;
 
 public class AddFundamentalDataView extends JFrame {
     CounterStaff parentFrame;
@@ -19,7 +23,7 @@ public class AddFundamentalDataView extends JFrame {
     public AddFundamentalDataView(CounterStaff frame) {
         parentFrame = frame;
         control = new GetPatientsData();
-        control.setEntity(parentFrame.loginFrame.staffs);
+        control.setEntity(parentFrame.loginFrame.patients);
         
         this.setLayout(new FlowLayout());
         this.setTitle("新增一筆基本資料。來填資料吧！");
@@ -80,9 +84,17 @@ public class AddFundamentalDataView extends JFrame {
     
     private void button_actionPerformed(ActionEvent e) {
         if (e.getSource().equals(submit)) {
-            // 這裡就是controller大顯身手的地方了
-            System.out.println("空殼不做事的submit～假裝新增一筆資料了～ㄌㄩㄝ");
-            
+            /**
+             *  這裡就是"業務邏輯"大顯身手的地方了
+             *  因為屬「增刪修查」的增，所以就不另開controller囉
+             */
+            parentFrame.loginFrame.patients.put(id.getText(),
+                    new Patient(
+                            name.getText(),
+                            Integer.parseInt( age.getText() ),
+                            sex.getText(),
+                            id.getText()));
+            // TODO 再跳出個確認視窗/新增成功？
             
             // 重整GUI
             parentFrame.setVisible(true);
