@@ -7,19 +7,24 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 import javax.swing.event.*;
-
+import storage.staff.*;
 
 
 public class CounterStaff extends JFrame {
 	LoginFrame loginFrame;
+	Staff me;
 	JButton actionButton1, actionButton2, actionButton3, actionButton4, actionButton5, logoutButton;
 	
-	public CounterStaff(LoginFrame loginFrame){
+	public CounterStaff(LoginFrame loginFrame, Staff aStaff){
+	    me = aStaff;
 	    setupGUI(loginFrame);
 	}
 	
 	/**
 	 * 櫃檯人員的各項操作
+	 * 一個Controller=一個function?
+	 * 醫生與櫃檯都想看病人資料，寫成各自function一定是複製貼上：code重複。
+	 * 寫成controller吧！
 	 */
     public void createFoundamentalData(){
         new AddFundamentalDataView(this);

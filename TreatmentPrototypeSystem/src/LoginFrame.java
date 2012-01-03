@@ -12,6 +12,8 @@ import storage.staff.StaffStorage;
 
 
 public class LoginFrame extends JFrame{
+    Staff aStaff;
+    
 	JLabel idLabel,pwdLabel;
 	JTextField id,pwd;
 	JTextArea idCode;
@@ -81,7 +83,7 @@ public class LoginFrame extends JFrame{
 	
 	private void button_actionPerformed(ActionEvent e) {
 	    if (e.getSource().equals(submit)) {
-	        if ( control.login(id.getText(), pwd.getText()) ) { // 判斷登入成功
+            if ( (aStaff = control.login(id.getText(), pwd.getText()) ) != null ) { // 判斷登入成功
 	            // 確定抓得到，還是要view自己抓。這裡就不透過control了，太冗了。
 	            switch( staffs.get(id.getText()).occupation() ) {
 	            case doctor:
@@ -89,7 +91,7 @@ public class LoginFrame extends JFrame{
 	            case nurse:
 	                new Nurse(this); break;
 	            case counterStaff:
-	                new CounterStaff(this); break;
+	                new CounterStaff(this, aStaff); break;
 	            case inspector:
 	                new Inspector(this); break;
 	            case pharmacist:
@@ -99,7 +101,7 @@ public class LoginFrame extends JFrame{
                     System.exit(ERROR);
 	            }
 	            this.setVisible(false); // 也可以不要設成false，可以大玩「單機多人登入」:)
-	            JOptionPane.showMessageDialog(null, "登入成功。");
+	            JOptionPane.showMessageDialog(null, "歡迎登入，" + aStaff.name() + aStaff.occupation() + "。");
 	        } else {
 	            JOptionPane.showMessageDialog(null, "登入失敗。");
 	        }
