@@ -1,3 +1,4 @@
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -6,46 +7,81 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 import javax.swing.event.*;
-public class CounterStaff extends Staff {
+
+
+
+public class CounterStaff extends JFrame {
 	LoginFrame loginFrame;
-	JButton actionButton,logoutButton;
+	JButton actionButton1, actionButton2, actionButton3, actionButton4, actionButton5, logoutButton;
+	
 	public CounterStaff(LoginFrame loginFrame){
 	    setupGUI(loginFrame);
 	}
+	
+	/**
+	 * æ«ƒæª¯äººå“¡çš„å„é …æ“ä½œ
+	 */
+    public void createFoundamentalData(){
+        new AddFundamentalDataView(this);
+        this.setVisible(false);
+        new DEBUG(0, "[æ«ƒå°äººå“¡] æ–°å¢ä¸€ç­†åŸºæœ¬è³‡æ–™");
+    }
 	public void arrangeCheckin(){
-		new DEBUG(0, "[Âd¥x¤H­û] ¦w±Æ¯f¤H¦í¯f©Ğ");
+		new DEBUG(0, "[æ«ƒå°äººå“¡] å®‰æ’ç—…äººä½ç—…æˆ¿");
 	}
 	public void quotePrice(){
-		new DEBUG(0, "[Âd¥x¤H­û] §å»ù");
-	}
-	public void createFoundamentalData(){
-		new DEBUG(0, "[Âd¥x¤H­û] ·s¼W¤@µ§°ò¥»¸ê®Æ");
-	}
-	public void pushToDiagnosisList(){
-		new DEBUG(0, "[Âd¥x¤H­û] ·s¼W¤@µ§¸ê®Æ¨ì¬İ¶E¦Cªí");
-	}
-	public void arrangeCheckout(){
-		new DEBUG(0, "[Âd¥x¤H­û] ¿ì²z¥X°|");
+		new DEBUG(0, "[æ«ƒå°äººå“¡] æ‰¹åƒ¹");
 	}
 
+	public void pushToDiagnosisList(){
+	    /**
+	     * æ«ƒæª¯äººå“¡ç•«é¢->æ›è™Ÿç•«é¢->é¸ç§‘åˆ¥->é¸é†«ç”Ÿ->å‰µå»ºä¸€å€‹DiagnosisRecordç‰©ä»¶ã€pushåˆ°æ­£ç¢ºé†«ç”Ÿçš„DiagnosisList
+	     */
+		new DEBUG(0, "[æ«ƒå°äººå“¡] æ–°å¢ä¸€ç­†è³‡æ–™åˆ°çœ‹è¨ºåˆ—è¡¨");
+	}
+	public void arrangeCheckout(){
+		new DEBUG(0, "[æ«ƒå°äººå“¡] è¾¦ç†å‡ºé™¢");
+	}
+
+	/**
+	 * GUIç›¸é—œ
+	 */
     public void setupGUI(LoginFrame loginFrame){
         this.loginFrame = loginFrame;
-        this.setTitle("Âd¥x¤H­û±M¥Î");
-        actionButton = new JButton("°Ê§@");
-        logoutButton = new JButton("µn¥X");
+        this.setTitle("æ«ƒå°äººå“¡å°ˆç”¨");
+        this.setLayout(new FlowLayout());
+        actionButton1 = new JButton("æ–°å¢ä¸€ç­†åŸºæœ¬è³‡æ–™");
+        actionButton2 = new JButton("å®‰æ’ç—…äººä½é€²ç—…æˆ¿");
+        actionButton3 = new JButton("æ‰¹åƒ¹");
+        actionButton4 = new JButton("å®‰æ’å€™è¨º");
+        actionButton5 = new JButton("è¾¦ç†å‡ºé™¢");
+        logoutButton = new JButton("ç™»å‡º");
         
-        actionButton.addActionListener(new java.awt.event.ActionListener() {
-              public void actionPerformed(ActionEvent e) {
-                button_actionPerformed(e);
-              }
+        actionButton1.addActionListener(new java.awt.event.ActionListener() {
+              public void actionPerformed(ActionEvent e) { button_actionPerformed(e); }
             });
+        actionButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) { button_actionPerformed(e); }
+          });
+        actionButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) { button_actionPerformed(e); }
+          });
+        actionButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) { button_actionPerformed(e); }
+          });
+        actionButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) { button_actionPerformed(e); }
+          });
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
-              public void actionPerformed(ActionEvent e) {
-                button_actionPerformed(e);
-              }
+              public void actionPerformed(ActionEvent e) { button_actionPerformed(e); }
             });
-        this.add(actionButton,BorderLayout.NORTH);
-        this.add(logoutButton,BorderLayout.CENTER);
+        
+        this.add(actionButton1);
+        this.add(actionButton2);
+        this.add(actionButton3);
+        this.add(actionButton4);
+        this.add(actionButton5);
+        this.add(logoutButton);
         
         this.setSize(500,200);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -60,14 +96,19 @@ public class CounterStaff extends Staff {
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 	private void button_actionPerformed(ActionEvent e) {
-	    if (e.getSource().equals(actionButton)) {
-	        arrangeCheckin();
-	        quotePrice();
+	    if (e.getSource().equals(actionButton1)) {
 	        createFoundamentalData();
+	    } else if (e.getSource().equals(actionButton2)) {
+	        arrangeCheckin();
+	    } else if (e.getSource().equals(actionButton3)) {
+	        quotePrice();
+	    } else if (e.getSource().equals(actionButton4)) {
 	        pushToDiagnosisList();
+	    } else if (e.getSource().equals(actionButton5)) {
 	        arrangeCheckout();
 	    }else if (e.getSource().equals(logoutButton)) {
-	    	logout();
+	        loginFrame.setVisible(true);
+	        this.dispose();
 	    }
 	}
 	

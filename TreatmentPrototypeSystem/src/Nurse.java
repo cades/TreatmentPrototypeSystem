@@ -1,3 +1,4 @@
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -6,14 +7,16 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 import javax.swing.event.*;
-public class Nurse extends Staff {
+
+
+public class Nurse extends JFrame {
 	LoginFrame loginFrame;
 	JButton actionButton,logoutButton;
 	public Nurse(LoginFrame loginFrame){
 		this.loginFrame = loginFrame;
-		this.setTitle("Å@¤h±M¥Î");
-		actionButton = new JButton("°Ê§@");
-		logoutButton = new JButton("µn¥X");
+		this.setTitle("è­·å£«å°ˆç”¨");
+		actionButton = new JButton("å‹•ä½œ");
+		logoutButton = new JButton("ç™»å‡º");
 		
 		actionButton.addActionListener(new java.awt.event.ActionListener() {
 		      public void actionPerformed(ActionEvent e) {
@@ -41,10 +44,10 @@ public class Nurse extends Staff {
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	}
 	public void printPrescriptions (){
-		System.out.println("[Å@¤h] ¦C¦LÃÄ³æ");
+		System.out.println("[è­·å£«] åˆ—å°è—¥å–®");
 	}
 	public void makeInspection(){
-		System.out.println("[Å@¤h] ¦w±ÆÀË¬dµ{§Ç");
+		System.out.println("[è­·å£«] å®‰æ’æª¢æŸ¥ç¨‹åº");
 	}
 
 	private void button_actionPerformed(ActionEvent e) {
@@ -52,8 +55,9 @@ public class Nurse extends Staff {
 	    	printPrescriptions();
 	    	makeInspection();
 	    }else if (e.getSource().equals(logoutButton)) {
-	    	logout();
-	    }
+            loginFrame.setVisible(true);
+            this.dispose();
+        }
 	}
 	
 }

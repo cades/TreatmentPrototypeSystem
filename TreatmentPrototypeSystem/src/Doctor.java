@@ -1,3 +1,4 @@
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -6,7 +7,10 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 import javax.swing.event.*;
-public class Doctor extends Staff {
+
+
+
+public class Doctor extends JFrame {
 	LoginFrame loginFrame;
 	JButton actionButton,logoutButton;
 	
@@ -17,26 +21,26 @@ public class Doctor extends Staff {
 		diagnosisList = new DiagnosisList();
 	}
 	public void makePatientLiveInHospital(){
-		new DEBUG(0, "[Âå¥Í] ¨M©w¯f¤H­n¦í°|");
+		new DEBUG(0, "[é†«ç”Ÿ] æ±ºå®šç—…äººè¦ä½é™¢");
 	}
 	public void editMedicalRecord(){
-	    new DEBUG(0, "[Âå¥Í] ¬d¬İ¯f¾ú");
+	    new DEBUG(0, "[é†«ç”Ÿ] æŸ¥çœ‹ç—…æ­·");
 	}
 	public void showPetientInformation(){
-		new DEBUG(0, "[Âå¥Í] ¬d¬İ°ò¥»¸ê®Æ");
+		new DEBUG(0, "[é†«ç”Ÿ] æŸ¥çœ‹åŸºæœ¬è³‡æ–™");
 	}
 	public void showDrugStocks(){
-		new DEBUG(0, "[Âå¥Í] ¬d¬İÃÄ«~®w¦s");
+		new DEBUG(0, "[é†«ç”Ÿ] æŸ¥çœ‹è—¥å“åº«å­˜");
 	}
 	public void makePrescriptions(){
-		new DEBUG(0, "[Âå¥Í] ¶}ÃÄ³æ");
+		new DEBUG(0, "[é†«ç”Ÿ] é–‹è—¥å–®");
 	}
 
 	private void setupGUI(LoginFrame loginFrame) {
 	    this.loginFrame = loginFrame;
-        this.setTitle("Âå¥Í±M¥Î");
-        actionButton = new JButton("°Ê§@");
-        logoutButton = new JButton("µn¥X");
+        this.setTitle("é†«ç”Ÿå°ˆç”¨");
+        actionButton = new JButton("å‹•ä½œ");
+        logoutButton = new JButton("ç™»å‡º");
         
         actionButton.addActionListener(new java.awt.event.ActionListener() {
               public void actionPerformed(ActionEvent e) {
@@ -71,8 +75,9 @@ public class Doctor extends Staff {
 	    	showDrugStocks();
 	    	makePrescriptions();
 	    }else if (e.getSource().equals(logoutButton)) {
-	    	logout();
-	    }
+            loginFrame.setVisible(true);
+            this.dispose();
+        }
 	}
 	
 }

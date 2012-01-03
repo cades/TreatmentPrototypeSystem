@@ -1,4 +1,5 @@
 
+
 public class InspectionRoom {
     final int XRay = 0;
     final int bloodPressure = 1;

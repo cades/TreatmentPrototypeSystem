@@ -1,3 +1,4 @@
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -6,14 +7,16 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 import javax.swing.event.*;
-public class Pharmacist extends Staff {
+
+
+public class Pharmacist extends JFrame {
 	LoginFrame loginFrame;
 	JButton actionButton,logoutButton;
 	public Pharmacist(LoginFrame loginFrame){
 		this.loginFrame = loginFrame;
-		this.setTitle("ÃÄ¾¯®v±M¥Î");
-		actionButton = new JButton("°Ê§@");
-		logoutButton = new JButton("µn¥X");
+		this.setTitle("è—¥åŠ‘å¸«å°ˆç”¨");
+		actionButton = new JButton("å‹•ä½œ");
+		logoutButton = new JButton("ç™»å‡º");
 		
 		actionButton.addActionListener(new java.awt.event.ActionListener() {
 		      public void actionPerformed(ActionEvent e) {
@@ -41,10 +44,10 @@ public class Pharmacist extends Staff {
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	}
 	public void dispense(){
-		System.out.println("[ÃÄ¾¯®v] ®Ú¾ÚÃÄ³æ½Õ°tÃÄ¾¯");
+		System.out.println("[è—¥åŠ‘å¸«] æ ¹æ“šè—¥å–®èª¿é…è—¥åŠ‘");
 	}
 	public void checkIfPeePrice(){
-		System.out.println("[ÃÄ¾¯®v] ½T»{¯f¤H¬O§_¤w§å»ù");
+		System.out.println("[è—¥åŠ‘å¸«] ç¢ºèªç—…äººæ˜¯å¦å·²æ‰¹åƒ¹");
 	}
 
 	private void button_actionPerformed(ActionEvent e) {
@@ -52,8 +55,9 @@ public class Pharmacist extends Staff {
 	    	dispense();
 	    	checkIfPeePrice();
 	    }else if (e.getSource().equals(logoutButton)) {
-	    	logout();
-	    }
+            loginFrame.setVisible(true);
+            this.dispose();
+        }
 	}
 	
 }

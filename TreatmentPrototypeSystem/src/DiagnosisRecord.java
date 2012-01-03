@@ -1,4 +1,5 @@
 
+
 public class DiagnosisRecord {
     private String name;
     private int number;

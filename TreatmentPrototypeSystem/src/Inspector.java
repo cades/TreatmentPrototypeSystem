@@ -1,3 +1,4 @@
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -6,14 +7,16 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 import javax.swing.event.*;
-public class Inspector extends Staff {
+
+
+public class Inspector extends JFrame {
 	LoginFrame loginFrame;
 	JButton actionButton,logoutButton;
 	public Inspector(LoginFrame loginFrame){
 		this.loginFrame = loginFrame;
-		this.setTitle("ÀË¬d¤H­û±M¥Î");
-		actionButton = new JButton("°Ê§@");
-		logoutButton = new JButton("µn¥X");
+		this.setTitle("æª¢æŸ¥äººå“¡å°ˆç”¨");
+		actionButton = new JButton("å‹•ä½œ");
+		logoutButton = new JButton("ç™»å‡º");
 		
 		actionButton.addActionListener(new java.awt.event.ActionListener() {
 		      public void actionPerformed(ActionEvent e) {
@@ -41,10 +44,10 @@ public class Inspector extends Staff {
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	}
 	public void unNameAction1 (){
-		System.out.println("[ÀË¬d¤H­û] ¼gÀË¬d³ø§i");
+		System.out.println("[æª¢æŸ¥äººå“¡] å¯«æª¢æŸ¥å ±å‘Š");
 	}
 	public void unNameAction2(){
-		System.out.println("[ÀË¬d¤H­û] Æ[¬Ý¯f¤HÀË¬d¶µ¥Ø");
+		System.out.println("[æª¢æŸ¥äººå“¡] è§€çœ‹ç—…äººæª¢æŸ¥é …ç›®");
 	}
 
 	private void button_actionPerformed(ActionEvent e) {
@@ -52,8 +55,9 @@ public class Inspector extends Staff {
 	    	unNameAction1();
 	    	unNameAction2();
 	    }else if (e.getSource().equals(logoutButton)) {
-	    	logout();
-	    }
+            loginFrame.setVisible(true);
+            this.dispose();
+        }
 	}
 	
 }
