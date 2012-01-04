@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import storage.staff.Staff;
 import view.DiagnosisList;
 import view.LoginFrame;
+import java.awt.Dimension;
 
 
 public class DoctorMainView extends JFrame {
@@ -19,6 +20,7 @@ public class DoctorMainView extends JFrame {
     
     private static final long serialVersionUID = 1L;
     private JPanel jContentPane = null;
+    private DoctorMainTabbedPane doctorMainTabbedPane = null;
 
     /**
      * This is the default constructor
@@ -36,7 +38,7 @@ public class DoctorMainView extends JFrame {
      * @return void
      */
     private void initialize() {
-        this.setSize(300, 200);
+        this.setSize(521, 208);
         this.setContentPane(getJContentPane());
         this.setTitle("醫生主畫面");
         this.setVisible(true);
@@ -51,9 +53,17 @@ public class DoctorMainView extends JFrame {
         if (jContentPane == null) {
             jContentPane = new JPanel();
             jContentPane.setLayout(new BorderLayout());
-            jContentPane.add(new DoctorMainTabbedPane(this), BorderLayout.CENTER);
+            jContentPane.add(getDoctorMainTabbedPane(), BorderLayout.CENTER);
         }
         return jContentPane;
     }
+    
+    private DoctorMainTabbedPane getDoctorMainTabbedPane() {
+        if (doctorMainTabbedPane == null) {
+            doctorMainTabbedPane = new DoctorMainTabbedPane();
+            doctorMainTabbedPane.setParent(this);
+        }
+        return doctorMainTabbedPane;
+    }
 
-}
+}  //  @jve:decl-index=0:visual-constraint="10,10"

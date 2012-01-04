@@ -3,12 +3,13 @@ package view.doctor;
 import javax.swing.JTabbedPane;
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
+import java.awt.Dimension;
 
 public class DoctorMainTabbedPane extends JTabbedPane {
     // MainTabbedPane加兩行，建構子加參數、賦值p。
     private DoctorMainView parent;
     public DoctorMainView parent() {return parent;}
-    
+    public void setParent(DoctorMainView p) {parent = p;}
     
     private static final long serialVersionUID = 1L;
     private SeePatientFoundamentalDataPanel seePatientFoundamentalDataPanel = null;
@@ -16,10 +17,16 @@ public class DoctorMainTabbedPane extends JTabbedPane {
 
     private SeeCaseHistoryPanel seeCaseHistoryPanel = null;
     private SeeMedicinesPanel seeMedicinesPanel = null;
+    private SeeInspectionReportPanel seeInspectionReportPanel = null;
      
     /**
      * This is the default constructor
      */
+    public DoctorMainTabbedPane() {
+        super();
+        initialize();
+    }
+    
     public DoctorMainTabbedPane(DoctorMainView p) {
         super();
         parent = p;
@@ -32,11 +39,12 @@ public class DoctorMainTabbedPane extends JTabbedPane {
      * @return void
      */
     private void initialize() {
-        this.setSize(300, 200);
+        this.setSize(394, 201);
 
         this.addTab("看病人基本資料", null, getSeePatientFoundamentalDataPanel(), null);
         this.addTab("看病歷", null, getSeeCaseHistoryPanel(), null);
         this.addTab("查藥品庫存", null, getSeeMedicinesPanel(), null);
+        this.addTab("看檢查報告", null, getSeeInspectionReportPanel(), null);
     }
 
     /**
@@ -76,4 +84,17 @@ public class DoctorMainTabbedPane extends JTabbedPane {
         return seeMedicinesPanel;
     }
 
-}
+    /**
+     * This method initializes seeInspectionReportPanel	
+     * 	
+     * @return javax.swing.JPanel	
+     */
+    private JPanel getSeeInspectionReportPanel() {
+        if (seeInspectionReportPanel == null) {
+            seeInspectionReportPanel = new SeeInspectionReportPanel();
+            //seeInspectionReportPanel.setLayout(null);
+        }
+        return seeInspectionReportPanel;
+    }
+
+}  //  @jve:decl-index=0:visual-constraint="10,10"
