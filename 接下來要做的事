@@ -1,0 +1,12 @@
+刻JPanel:
+1. JTextField的名字盡量有意義，例如id、name
+2. 確認的JButton一律命名為submit
+
+把刻好的JPanel加入JTabbedPanel:
+1. 加一個JPanel到JTabbedPanel
+2. 取名用對應的class，但首字小寫（避免類別與變數一樣）
+3. 改「宣告變數的類別」、「new JPanle()改成new 我們刻的class()」、「addTab()第一個參數加上標籤名稱」
+
+
+業務邏輯：
+寫在submit的addActionListener裡面。不另設controller。
