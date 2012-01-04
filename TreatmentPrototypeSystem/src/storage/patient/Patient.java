@@ -12,4 +12,6 @@ public class Patient {
         this.sex = sex;
         this.id = id;
     }
+    
+    public String name() {return name;}
 }

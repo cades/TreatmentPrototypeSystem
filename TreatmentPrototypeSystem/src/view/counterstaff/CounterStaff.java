@@ -14,7 +14,6 @@ import javax.swing.event.*;
 import storage.staff.*;
 import view.DEBUG;
 import view.LoginFrame;
-import view.doctor.PushToDiagnosisListView;
 
 
 public class CounterStaff extends JFrame {

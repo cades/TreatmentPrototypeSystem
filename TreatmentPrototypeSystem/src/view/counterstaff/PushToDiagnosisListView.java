@@ -1,4 +1,4 @@
-package view.doctor;
+package view.counterstaff;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
@@ -12,7 +12,6 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 
-import view.counterstaff.CounterStaff;
 
 public class PushToDiagnosisListView extends JFrame {
     CounterStaff parentFrame;
