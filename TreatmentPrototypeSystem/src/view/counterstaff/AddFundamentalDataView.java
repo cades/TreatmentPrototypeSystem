@@ -10,12 +10,10 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 
-import control.*;
 import storage.patient.*;
 
 public class AddFundamentalDataView extends JFrame {
     CounterStaff parentFrame;
-    GetPatientsData control;
     
     JLabel nameLabel, ageLabel, sexLabel, idLabel;
     JTextField name, age, sex, id;
@@ -24,8 +22,6 @@ public class AddFundamentalDataView extends JFrame {
     
     public AddFundamentalDataView(CounterStaff frame) {
         parentFrame = frame;
-        control = new GetPatientsData();
-        control.setEntity(parentFrame.loginFrame.patients());
         
         this.setLayout(new FlowLayout());
         this.setTitle("新增一筆基本資料。來填資料吧！");
