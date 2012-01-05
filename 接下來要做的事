@@ -1,6 +1,7 @@
 刻JPanel:
-1. JTextField的名字盡量有意義，例如id、name
-2. 確認的JButton一律命名為submit
+1. 請取名叫XXPanel，例如「SeeMedicinesPanel」、「SeeCaseHistoryPanel」
+2. JTextField的名字盡量有意義，例如id、name
+3. 確認的JButton一律命名為submit
 
 把刻好的JPanel加入JTabbedPanel:
 1. 加一個JPanel到JTabbedPanel
