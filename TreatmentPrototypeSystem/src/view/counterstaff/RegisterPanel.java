@@ -13,11 +13,9 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 
 
-public class PushToDiagnosisListView extends JFrame {
-    CounterStaff parentFrame;
+public class RegisterPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
-    private JPanel jContentPane = null;
     private JLabel jLabel = null;
     private JLabel jLabel1 = null;
     private JComboBox departmentComboBox = null;
@@ -30,11 +28,9 @@ public class PushToDiagnosisListView extends JFrame {
     /**
      * This is the default constructor
      */
-    public PushToDiagnosisListView(CounterStaff frame) {
+    public RegisterPanel() {
         super();
         initialize();
-        parentFrame = frame;
-        this.setVisible(true);
     }
 
     /**
@@ -44,61 +40,47 @@ public class PushToDiagnosisListView extends JFrame {
      */
     private void initialize() {
         this.setSize(300, 200);
-        this.setContentPane(getJContentPane());
-        this.setTitle("排進看診列表");
-    }
-
-    /**
-     * This method initializes jContentPane
-     * 
-     * @return javax.swing.JPanel
-     */
-    private JPanel getJContentPane() {
-        if (jContentPane == null) {
-            GridBagConstraints gridBagConstraints13 = new GridBagConstraints();
-            gridBagConstraints13.fill = GridBagConstraints.VERTICAL;
-            gridBagConstraints13.gridy = 0;
-            gridBagConstraints13.weightx = 1.0;
-            gridBagConstraints13.gridx = 1;
-            GridBagConstraints gridBagConstraints12 = new GridBagConstraints();
-            gridBagConstraints12.gridx = 1;
-            gridBagConstraints12.gridy = 3;
-            GridBagConstraints gridBagConstraints11 = new GridBagConstraints();
-            gridBagConstraints11.fill = GridBagConstraints.VERTICAL;
-            gridBagConstraints11.gridy = 2;
-            gridBagConstraints11.weightx = 1.0;
-            gridBagConstraints11.gridx = 1;
-            GridBagConstraints gridBagConstraints10 = new GridBagConstraints();
-            gridBagConstraints10.gridx = 0;
-            gridBagConstraints10.gridy = 2;
-            jLabel2 = new JLabel();
-            jLabel2.setText("選醫生");
-            GridBagConstraints gridBagConstraints9 = new GridBagConstraints();
-            gridBagConstraints9.fill = GridBagConstraints.VERTICAL;
-            gridBagConstraints9.gridy = 1;
-            gridBagConstraints9.weightx = 1.0;
-            gridBagConstraints9.gridx = 1;
-            GridBagConstraints gridBagConstraints5 = new GridBagConstraints();
-            gridBagConstraints5.gridx = 0;
-            gridBagConstraints5.gridy = 1;
-            jLabel1 = new JLabel();
-            jLabel1.setText("選科別");
-            GridBagConstraints gridBagConstraints = new GridBagConstraints();
-            gridBagConstraints.gridx = 0;
-            gridBagConstraints.gridy = 0;
-            jLabel = new JLabel();
-            jLabel.setText("病人ID");
-            jContentPane = new JPanel();
-            jContentPane.setLayout(new GridBagLayout());
-            jContentPane.add(jLabel, gridBagConstraints);
-            jContentPane.add(jLabel2, gridBagConstraints10);
-            jContentPane.add(getDoctorComboBox(), gridBagConstraints11); // 手動調過位置，因為要先初始化醫生，才能初始化科別。
-            jContentPane.add(jLabel1, gridBagConstraints5);
-            jContentPane.add(getDepartmentComboBox(), gridBagConstraints9);
-            jContentPane.add(getSubmit(), gridBagConstraints12);
-            jContentPane.add(getPatientId(), gridBagConstraints13);
-        }
-        return jContentPane;
+        this.setLayout(new GridBagLayout());
+        GridBagConstraints gridBagConstraints13 = new GridBagConstraints();
+        gridBagConstraints13.fill = GridBagConstraints.VERTICAL;
+        gridBagConstraints13.gridy = 0;
+        gridBagConstraints13.weightx = 1.0;
+        gridBagConstraints13.gridx = 1;
+        GridBagConstraints gridBagConstraints12 = new GridBagConstraints();
+        gridBagConstraints12.gridx = 1;
+        gridBagConstraints12.gridy = 3;
+        GridBagConstraints gridBagConstraints11 = new GridBagConstraints();
+        gridBagConstraints11.fill = GridBagConstraints.VERTICAL;
+        gridBagConstraints11.gridy = 2;
+        gridBagConstraints11.weightx = 1.0;
+        gridBagConstraints11.gridx = 1;
+        GridBagConstraints gridBagConstraints10 = new GridBagConstraints();
+        gridBagConstraints10.gridx = 0;
+        gridBagConstraints10.gridy = 2;
+        jLabel2 = new JLabel();
+        jLabel2.setText("選醫生");
+        GridBagConstraints gridBagConstraints9 = new GridBagConstraints();
+        gridBagConstraints9.fill = GridBagConstraints.VERTICAL;
+        gridBagConstraints9.gridy = 1;
+        gridBagConstraints9.weightx = 1.0;
+        gridBagConstraints9.gridx = 1;
+        GridBagConstraints gridBagConstraints5 = new GridBagConstraints();
+        gridBagConstraints5.gridx = 0;
+        gridBagConstraints5.gridy = 1;
+        jLabel1 = new JLabel();
+        jLabel1.setText("選科別");
+        GridBagConstraints gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        jLabel = new JLabel();
+        jLabel.setText("病人ID");
+        this.add(jLabel, gridBagConstraints);
+        this.add(jLabel2, gridBagConstraints10);
+        this.add(getDoctorComboBox(), gridBagConstraints11); // 手動調過位置，因為要先初始化醫生，才能初始化科別。
+        this.add(jLabel1, gridBagConstraints5);
+        this.add(getDepartmentComboBox(), gridBagConstraints9);
+        this.add(getSubmit(), gridBagConstraints12);
+        this.add(getPatientId(), gridBagConstraints13);
     }
 
     /**
