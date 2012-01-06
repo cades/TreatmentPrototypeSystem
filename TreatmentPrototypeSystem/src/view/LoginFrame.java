@@ -8,6 +8,8 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 
+import control.LoginControl;
+
 import storage.staff.Occupation;
 import storage.staff.Staff;
 import storage.staff.StaffStorage;
@@ -28,7 +30,6 @@ public class LoginFrame extends JFrame{
      *     不過想不到更好的作法了，因為main一new LoginFrame，所有權就被搶了。
      * *.  我發現，循序圖有個盲點：物件的生成時間。還有B、C、E之間的從屬關係，沒有明確規範
      */
-    StaffStorage staffs;
     LoginControl control;
     Staff aStaff;
     
@@ -38,12 +39,10 @@ public class LoginFrame extends JFrame{
 	JPanel up ,center, down;
 	JButton submit;
 	
-	public StaffStorage staffs() { return staffs; }
 	
-	public LoginFrame(StaffStorage staffs) {
-	    this.staffs = staffs;          // 取得資料庫
+	public LoginFrame() {
 	    control = new LoginControl();  // 生成控制物件
-	    control.setStorage(staffs);    // 連結控制物件與資料庫
+	    control.setStorage(StaffStorage.Instance());    // 連結控制物件與資料庫
 	    
 	    setupGUI();
 	}
@@ -95,7 +94,7 @@ public class LoginFrame extends JFrame{
 	    if (e.getSource().equals(submit)) {
             if ( (aStaff = control.login(id.getText(), pwd.getText()) ) != null ) { // 判斷登入成功
 	            // 確定抓得到，還是要view自己抓。這裡就不透過control了，太冗了。
-	            switch( staffs.get(id.getText()).occupation() ) {
+	            switch( StaffStorage.Instance().get(id.getText()).occupation() ) {
 	            case doctor:
 	                new DoctorMainView(aStaff).setVisible(true);
 	                break;

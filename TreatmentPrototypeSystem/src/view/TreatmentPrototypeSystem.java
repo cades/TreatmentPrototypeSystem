@@ -6,13 +6,13 @@ import storage.staff.StaffStorage;
 import storage.patient.*;
 
 public class TreatmentPrototypeSystem {
-    static StaffStorage staffs = new StaffStorage(); 
+    static StaffStorage staffs = StaffStorage.Instance(); 
     
     public static void main(String[] args) {
         initData();
         
         // 開始冒險囉！！
-        new LoginFrame(staffs);
+        new LoginFrame();
         
     }
     
