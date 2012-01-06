@@ -1,4 +1,4 @@
-package view;
+package control;
 
 import storage.staff.*;
 
