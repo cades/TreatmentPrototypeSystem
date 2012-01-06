@@ -1,5 +1,7 @@
 package view;
 
+import list.InspectionList;
+
 
 
 public class InspectionRoom {
