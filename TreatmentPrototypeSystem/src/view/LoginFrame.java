@@ -101,7 +101,6 @@ public class LoginFrame extends JFrame{
 	                break;
 	            case nurse:
 	                new NurseMainView(aStaff).setVisible(true);
-	                new NurseMainView(aStaff).setVisible(true);
 	                break;
 	            case counterStaff:
 	                new CounterStaffMainView(aStaff).setVisible(true);

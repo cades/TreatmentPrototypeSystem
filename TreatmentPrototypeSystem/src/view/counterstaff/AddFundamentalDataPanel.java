@@ -137,7 +137,6 @@ public class AddFundamentalDataPanel extends JPanel {
         if (patientName == null) {
             patientName = new JTextField();
             patientName.setColumns(10);
-            patientName.setText("                            ");
         }
         return patientName;
     }
