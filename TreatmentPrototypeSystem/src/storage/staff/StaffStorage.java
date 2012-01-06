@@ -5,9 +5,11 @@ import java.util.*;
 /**
  * entity兼control?
  * 存員工資料的資料庫
+ * 
+ * StaffStorage applies singleton pattern
  */
 public class StaffStorage extends HashMap<String, Staff> {
-    
+    private static StaffStorage _instance = null;
     /**
      * 
      */
@@ -16,6 +18,13 @@ public class StaffStorage extends HashMap<String, Staff> {
     public boolean validate(String id, String password) {
         if (this.containsKey(id) && this.get(id).password().equals(password)) return true;
         return false;
+    }
+    protected StaffStorage() {super();}
+    public static StaffStorage Instance() {
+        if(_instance == null) {
+            _instance = new StaffStorage();
+        }
+        return _instance;
     }
 }
 
