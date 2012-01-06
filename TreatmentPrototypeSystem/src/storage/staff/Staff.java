@@ -1,12 +1,12 @@
 package storage.staff;
-
+// TODO: 將來五職業要繼承它吧
 public class Staff {
     
-    String name;
-    String email;
-    Occupation occupation;
-    String id;
-    String password;
+    protected String name;
+    protected String email;
+    protected Occupation occupation;
+    protected  String id;
+    protected String password;
     
     public Staff(String name, String email, Occupation occupation, String id, String password) {
         this.name = name;
