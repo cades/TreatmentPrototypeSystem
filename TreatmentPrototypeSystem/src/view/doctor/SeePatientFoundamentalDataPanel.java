@@ -9,7 +9,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 import storage.patient.PatientStorage;
-import view.LoginFrame;
+
 
 public class SeePatientFoundamentalDataPanel extends JPanel{
 

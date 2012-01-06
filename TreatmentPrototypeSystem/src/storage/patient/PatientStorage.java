@@ -5,6 +5,7 @@ import java.util.*;
 
 /**
  * 存病人資料的資料庫
+ * 使用singleton pattern
  */
 public class PatientStorage extends HashMap<String, Patient> {
 
