@@ -1,15 +1,15 @@
 package view.doctor;
 
-import java.awt.GridBagLayout;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
+import storage.patient.PatientStorage;
+import view.LoginFrame;
 
 public class SeePatientFoundamentalDataPanel extends JPanel{
 
@@ -64,12 +64,11 @@ public class SeePatientFoundamentalDataPanel extends JPanel{
             submit.setText("查詢");
             submit.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {
-                    JButton jb = (JButton)e.getSource();
-                    DoctorMainTabbedPane pane = (DoctorMainTabbedPane)jb.getParent().getParent();
-                    if(pane.parent().loginFrame().patients().get(id.getText()) == null) {
+                    PatientStorage patients = PatientStorage.Instance();
+                    if(patients.get(id.getText()) == null) {
                         JOptionPane.showMessageDialog(null, "查無此人喔！");
                     } else {
-                        JOptionPane.showMessageDialog(null, "找到：" + pane.parent().loginFrame().patients().get(id.getText()).name());
+                        JOptionPane.showMessageDialog(null, "找到：" + patients.get(id.getText()).name());
                     }
                 }
             });

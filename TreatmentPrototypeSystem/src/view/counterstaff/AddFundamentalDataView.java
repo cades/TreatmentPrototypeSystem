@@ -8,7 +8,6 @@ import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
-import javax.swing.event.*;
 
 import storage.patient.*;
 
@@ -86,7 +85,8 @@ public class AddFundamentalDataView extends JFrame {
              *  這裡就是"業務邏輯"大顯身手的地方了
              *  因為屬「增刪修查」的增，所以就不另開controller囉
              */
-            parentFrame.loginFrame.patients().put(id.getText(),
+            PatientStorage patients = PatientStorage.Instance();
+            patients.put(id.getText(),
                     new Patient(
                             name.getText(),
                             Integer.parseInt( age.getText() ),
