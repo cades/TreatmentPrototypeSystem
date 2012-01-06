@@ -22,11 +22,6 @@ public class DoctorMainTabbedPane extends JTabbedPane {
         super();
         initialize();
     }
-    
-    public DoctorMainTabbedPane(DoctorMainView p) {
-        super();
-        initialize();
-    }
 
     /**
      * This method initializes this
