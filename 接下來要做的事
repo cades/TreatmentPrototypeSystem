@@ -6,7 +6,7 @@
 把刻好的JPanel加入JTabbedPanel:
 1. 加一個JPanel到JTabbedPanel
 2. 取名用對應的class，但首字小寫（避免類別與變數一樣）
-3. 改「宣告變數的類別」、「new JPanle()改成new 我們刻的class()」、「addTab()第一個參數加上標籤名稱」
+3. 改「宣告變數的類別」、「getXXPanel的return type改成我們的類別」「new JPanle()改成new 我們刻的class()」、「addTab()第一個參數加上標籤名稱」
 
 
 業務邏輯：
