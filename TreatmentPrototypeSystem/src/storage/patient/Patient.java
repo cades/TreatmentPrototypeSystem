@@ -14,4 +14,7 @@ public class Patient {
     }
     
     public String name() {return name;}
+    public int age() {return age;}
+    public String sex() {return sex;}
+    public String id() {return id;}
 }

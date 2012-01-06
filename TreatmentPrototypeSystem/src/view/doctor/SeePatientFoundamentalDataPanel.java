@@ -68,7 +68,7 @@ public class SeePatientFoundamentalDataPanel extends JPanel{
                     if(patients.get(id.getText()) == null) {
                         JOptionPane.showMessageDialog(null, "查無此人喔！");
                     } else {
-                        JOptionPane.showMessageDialog(null, "找到：" + patients.get(id.getText()).name());
+                        JOptionPane.showMessageDialog(null, "找到：" + patients.get(id.getText()).id());
                     }
                 }
             });
