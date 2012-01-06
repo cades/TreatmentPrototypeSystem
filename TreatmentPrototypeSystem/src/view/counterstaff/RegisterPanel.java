@@ -131,8 +131,13 @@ public class RegisterPanel extends JPanel {
             submit.setText("確定排進看診列表");
             submit.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {
-                    System.out.println("actionPerformed()"); // TODO Auto-generated Event stub actionPerformed()
-                    submit();
+                    if (!patientId.getText().equals("") &&
+                            departmentComboBox.getSelectedItem() != null &&
+                            doctorComboBox.getSelectedItem() != null) {
+                        System.out.println("假裝有掛號"); // TODO: 完成資料結構的插入
+                    } else {
+                        JOptionPane.showMessageDialog(null, "不能有欄位空白喔！請再檢查一次:)");
+                    }
                 }
             });
         }
@@ -164,15 +169,5 @@ public class RegisterPanel extends JPanel {
             doctorComboBox.addItem("Dr. 多尼多尼．喬巴");
             doctorComboBox.addItem("Dr. 古蕾娃");
         } else {}
-    }
-    
-    private void submit() {
-        if (!patientId.getText().equals("") &&
-                departmentComboBox.getSelectedItem() != null &&
-                doctorComboBox.getSelectedItem() != null) {
-            System.out.println("假裝有掛號"); // TODO: 完成資料結構的插入
-        } else {
-            JOptionPane.showMessageDialog(null, "不能有欄位空白喔！請再檢查一次:)");
-        }
     }
 }
