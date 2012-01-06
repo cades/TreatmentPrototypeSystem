@@ -23,8 +23,9 @@ public class DoctorMainView extends JFrame {
     /**
      * This is the default constructor
      */
-    public DoctorMainView() {
+    public DoctorMainView(Staff aStaff) {
         super();
+        me = aStaff;
         diagnosisList = new DiagnosisList();
         initialize();
     }
