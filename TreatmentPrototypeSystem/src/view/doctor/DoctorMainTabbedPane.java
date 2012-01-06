@@ -6,10 +6,6 @@ import java.awt.GridBagLayout;
 import java.awt.Dimension;
 
 public class DoctorMainTabbedPane extends JTabbedPane {
-    // MainTabbedPane加兩行，建構子加參數、賦值p。
-    private DoctorMainView parent;
-    public DoctorMainView parent() {return parent;}
-    public void setParent(DoctorMainView p) {parent = p;}
     
     private static final long serialVersionUID = 1L;
     private SeePatientFoundamentalDataPanel seePatientFoundamentalDataPanel = null;
@@ -29,7 +25,6 @@ public class DoctorMainTabbedPane extends JTabbedPane {
     
     public DoctorMainTabbedPane(DoctorMainView p) {
         super();
-        parent = p;
         initialize();
     }
 

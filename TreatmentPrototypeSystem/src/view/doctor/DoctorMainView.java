@@ -59,7 +59,6 @@ public class DoctorMainView extends JFrame {
     private DoctorMainTabbedPane getDoctorMainTabbedPane() {
         if (doctorMainTabbedPane == null) {
             doctorMainTabbedPane = new DoctorMainTabbedPane();
-            doctorMainTabbedPane.setParent(this);
         }
         return doctorMainTabbedPane;
     }
