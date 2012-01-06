@@ -6,9 +6,10 @@ import javax.swing.JPanel;
 import javax.swing.JFrame;
 
 import storage.staff.Staff;
-import view.DiagnosisList;
 import view.LoginFrame;
 import java.awt.Dimension;
+
+import list.DiagnosisList;
 
 
 public class DoctorMainView extends JFrame {
