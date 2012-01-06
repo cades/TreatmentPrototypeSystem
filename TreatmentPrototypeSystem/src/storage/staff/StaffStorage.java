@@ -8,6 +8,11 @@ import java.util.*;
  */
 public class StaffStorage extends HashMap<String, Staff> {
     
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+
     public boolean validate(String id, String password) {
         if (this.containsKey(id) && this.get(id).password().equals(password)) return true;
         return false;
