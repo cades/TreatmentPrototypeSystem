@@ -6,7 +6,6 @@ import javax.swing.JPanel;
 import javax.swing.JFrame;
 
 import storage.staff.Staff;
-import view.LoginFrame;
 import java.awt.Dimension;
 
 import list.DiagnosisList;
@@ -14,8 +13,6 @@ import list.DiagnosisList;
 
 public class DoctorMainView extends JFrame {
 
-    LoginFrame loginFrame;
-    public LoginFrame loginFrame() {return loginFrame; }
     Staff me;
     DiagnosisList diagnosisList;
     
@@ -26,9 +23,8 @@ public class DoctorMainView extends JFrame {
     /**
      * This is the default constructor
      */
-    public DoctorMainView(LoginFrame f) {
+    public DoctorMainView() {
         super();
-        loginFrame = f;   // 自定的變數必須在initialize()前設定好！！
         diagnosisList = new DiagnosisList();
         initialize();
     }
