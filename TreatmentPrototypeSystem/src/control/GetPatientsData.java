@@ -8,7 +8,7 @@ public class GetPatientsData {
     PatientStorage patients;
     
 
-    public void setEntity(PatientStorage staffs) { this.patients = patients; }
+    public void setEntity(PatientStorage patients) { this.patients = patients; }
 
     public Patient getData(Staff aStaff, String patientId) {
         switch (aStaff.occupation()) { //只有這兩個職業可以看病人個資
