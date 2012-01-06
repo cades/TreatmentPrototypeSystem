@@ -9,6 +9,14 @@ public class TreatmentPrototypeSystem {
     static StaffStorage staffs = new StaffStorage(); 
     
     public static void main(String[] args) {
+        initData();
+        
+        // 開始冒險囉！！
+        new LoginFrame(staffs);
+        
+    }
+    
+    private static void initData() {
         // 員工班底
         staffs.put("tonytony", new Staff("喬巴", "endless-dreaming@hotmail.com",
                 Occupation.doctor, "tonytony", "0000") );
@@ -24,9 +32,6 @@ public class TreatmentPrototypeSystem {
         // 病人班底
         PatientStorage.Instance().put("lufy", new Patient("魯夫", 21, "male", "lufy"));
         PatientStorage.Instance().put("brook", new Patient("布魯克", 50, "male", "brook"));
-        
-        // 開始冒險囉！！
-        new LoginFrame(staffs);
         
     }
 }
