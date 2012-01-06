@@ -14,6 +14,9 @@ import storage.staff.StaffStorage;
 import storage.patient.*;
 import view.counterstaff.CounterStaffMainView;
 import view.doctor.DoctorMainView;
+import view.inspector.InspectorMainView;
+import view.nurse.NurseMainView;
+import view.pharmacist.PharmacistMainView;
 
 
 
@@ -97,14 +100,18 @@ public class LoginFrame extends JFrame{
 	                new DoctorMainView(aStaff).setVisible(true);
 	                break;
 	            case nurse:
-	                new Nurse(this); break;
+	                new NurseMainView(aStaff).setVisible(true);
+	                new NurseMainView(aStaff).setVisible(true);
+	                break;
 	            case counterStaff:
 	                new CounterStaffMainView(aStaff).setVisible(true);
 	                break;
 	            case inspector:
-	                new Inspector(this); break;
+	                new InspectorMainView(aStaff).setVisible(true);
+	                break;
 	            case pharmacist:
-	                new Pharmacist(this); break;
+	                new PharmacistMainView(aStaff).setVisible(true); 
+	                break;
                 default:
                     System.out.println("未知的職業 ？！結束程式...");
                     System.exit(ERROR);
