@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 import javax.swing.event.*;
 import storage.staff.*;
-import view.DEBUG;
+import util.DEBUG;
 import view.LoginFrame;
 
 

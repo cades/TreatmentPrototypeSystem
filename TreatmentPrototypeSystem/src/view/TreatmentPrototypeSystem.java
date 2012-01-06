@@ -6,8 +6,7 @@ import storage.staff.StaffStorage;
 import storage.patient.*;
 
 public class TreatmentPrototypeSystem {
-    static StaffStorage staffs = new StaffStorage();
-    static PatientStorage patients = new PatientStorage(); 
+    static StaffStorage staffs = new StaffStorage(); 
     
     public static void main(String[] args) {
         // 員工班底
@@ -23,11 +22,11 @@ public class TreatmentPrototypeSystem {
                 Occupation.pharmacist, "robin", "0000") );
         
         // 病人班底
-        patients.put("lufy", new Patient("魯夫", 21, "male", "lufy"));
-        patients.put("brook", new Patient("布魯克", 50, "male", "brook"));
+        PatientStorage.Instance().put("lufy", new Patient("魯夫", 21, "male", "lufy"));
+        PatientStorage.Instance().put("brook", new Patient("布魯克", 50, "male", "brook"));
         
         // 開始冒險囉！！
-        new LoginFrame(staffs, patients);
+        new LoginFrame(staffs);
         
     }
 }

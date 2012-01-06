@@ -26,7 +26,6 @@ public class LoginFrame extends JFrame{
      * *.  我發現，循序圖有個盲點：物件的生成時間。還有B、C、E之間的從屬關係，沒有明確規範
      */
     StaffStorage staffs;
-    PatientStorage patients;
     LoginControl control;
     Staff aStaff;
     
@@ -37,11 +36,9 @@ public class LoginFrame extends JFrame{
 	JButton submit;
 	
 	public StaffStorage staffs() { return staffs; }
-    public PatientStorage patients() { return patients; }
 	
-	public LoginFrame(StaffStorage staffs, PatientStorage patients) {
+	public LoginFrame(StaffStorage staffs) {
 	    this.staffs = staffs;          // 取得資料庫
-	    this.patients = patients;
 	    control = new LoginControl();  // 生成控制物件
 	    control.setStorage(staffs);    // 連結控制物件與資料庫
 	    

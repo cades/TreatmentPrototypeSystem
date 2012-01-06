@@ -13,9 +13,15 @@ public class PatientStorage extends HashMap<String, Patient> {
      */
     private static final long serialVersionUID = 1L;
     
-//    public boolean validate(String id, String password) {
-//        if (this.containsKey(id) && this.get(id).password().equals(password)) return true;
-//        return false;
-//    }
+    private static PatientStorage _instance = null;
+    public static PatientStorage Instance() {
+        if(_instance == null) {
+            _instance = new  PatientStorage();
+        }
+        return _instance;
+    }
+    protected PatientStorage() {
+        super();
+    }
 }
 

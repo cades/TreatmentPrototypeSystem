@@ -115,7 +115,7 @@ public class PushToDiagnosisListView extends JFrame {
                     updateDoctorComboBox();
                 }
             });
-            departmentComboBox.addItem("內科");
+            departmentComboBox.addItem("內科"); // TODO: 用for loop加入科別，防止不同步
             departmentComboBox.addItem("外科");
             departmentComboBox.addItem("內神經科");
             departmentComboBox.addItem("小兒科");
@@ -174,7 +174,7 @@ public class PushToDiagnosisListView extends JFrame {
     private void updateDoctorComboBox() {
         String aDepart = (String)departmentComboBox.getSelectedItem();
         doctorComboBox.removeAllItems();
-        if (aDepart.equals("內科")) {
+        if (aDepart.equals("內科")) { // TODO: 這裡藥做到自動化恐怕是很以後的事了  就先將吧
             doctorComboBox.addItem("Dr. 古蕾娃");
         } else if  (aDepart.equals("外科")) {
             doctorComboBox.addItem("Dr. 西爾爾克");
