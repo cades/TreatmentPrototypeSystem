@@ -12,7 +12,7 @@ import storage.staff.Occupation;
 import storage.staff.Staff;
 import storage.staff.StaffStorage;
 import storage.patient.*;
-import view.counterstaff.CounterStaff;
+import view.counterstaff.CounterStaffMainView;
 import view.doctor.DoctorMainView;
 
 
@@ -94,11 +94,13 @@ public class LoginFrame extends JFrame{
 	            // 確定抓得到，還是要view自己抓。這裡就不透過control了，太冗了。
 	            switch( staffs.get(id.getText()).occupation() ) {
 	            case doctor:
-	                new DoctorMainView(aStaff); break;
+	                new DoctorMainView(aStaff).setVisible(true);
+	                break;
 	            case nurse:
 	                new Nurse(this); break;
 	            case counterStaff:
-	                new CounterStaff(this, aStaff); break;
+	                new CounterStaffMainView(aStaff).setVisible(true);
+	                break;
 	            case inspector:
 	                new Inspector(this); break;
 	            case pharmacist:
@@ -112,11 +114,9 @@ public class LoginFrame extends JFrame{
 	        } else {
 	            JOptionPane.showMessageDialog(null, "登入失敗。");
 	        }
-	        
-	        /**
-	         * 丁丁在這裡犯的錯誤是，「View代Control職」。
-	         * View取得input後，應該直接丟給Control處理。
-	         */
+            /**
+             * 增刪修查不必新增control，直接做在view裡面更能減少複雜性。
+             */
 	  }
 	}
 }
