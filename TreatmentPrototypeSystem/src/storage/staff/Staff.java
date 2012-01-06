@@ -5,7 +5,7 @@ public class Staff {
     protected String name;
     protected String email;
     protected Occupation occupation;
-    protected  String id;
+    protected String id;
     protected String password;
     
     public Staff(String name, String email, Occupation occupation, String id, String password) {
@@ -17,6 +17,8 @@ public class Staff {
     }
     
     public String name() { return name; }
-    public String password() { return password; }
+    public String email() { return email; }
     public Occupation occupation() { return occupation; }
+    public String id() { return id; }
+    public String password() { return password; }
 }

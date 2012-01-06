@@ -14,7 +14,6 @@ import list.DiagnosisList;
 public class DoctorMainView extends JFrame {
 
     Staff me;
-    DiagnosisList diagnosisList;
     
     private static final long serialVersionUID = 1L;
     private JPanel jContentPane = null;
@@ -26,7 +25,6 @@ public class DoctorMainView extends JFrame {
     public DoctorMainView(Staff aStaff) {
         super();
         me = aStaff;
-        diagnosisList = new DiagnosisList();
         initialize();
     }
 
