@@ -94,7 +94,7 @@ public class LoginFrame extends JFrame{
 	            // 確定抓得到，還是要view自己抓。這裡就不透過control了，太冗了。
 	            switch( staffs.get(id.getText()).occupation() ) {
 	            case doctor:
-	                new DoctorMainView(this); break;
+	                new DoctorMainView(); break;
 	            case nurse:
 	                new Nurse(this); break;
 	            case counterStaff:
