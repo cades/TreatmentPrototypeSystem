@@ -1,6 +1,6 @@
 package list;
 
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
-public class DiagnosisList extends ArrayList<DiagnosisRecord> {}
+public class DiagnosisList extends LinkedList<DiagnosisRecord> {}

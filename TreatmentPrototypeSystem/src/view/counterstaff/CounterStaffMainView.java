@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 
 import storage.staff.Staff;
 import java.awt.Dimension;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class CounterStaffMainView extends JFrame {
     private Staff me;
@@ -32,6 +34,13 @@ public class CounterStaffMainView extends JFrame {
         this.setSize(367, 251);
         this.setContentPane(getJContentPane());
         this.setTitle("櫃檯人員主畫面");
+        me.login(this);
+        this.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.out.println("" + me.name() + me.occupation() + "登出");
+                me.logout();
+                }
+        });
     }
 
     /**
@@ -59,5 +68,4 @@ public class CounterStaffMainView extends JFrame {
         }
         return counterStaffMainTabbedPane;
     }
-
 }  //  @jve:decl-index=0:visual-constraint="10,10"

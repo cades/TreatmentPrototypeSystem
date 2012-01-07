@@ -1,17 +1,21 @@
 package list;
 
+import storage.patient.Patient;
+
 
 
 public class DiagnosisRecord {
-    private String name;
+    private Patient patient;
+    private static int nextNumber;
     private int number;
     
-    public DiagnosisRecord(String newName, int newNumber) {
-        name = newName;
-        number = newNumber;
+    public DiagnosisRecord(Patient aPatient) {
+        patient = aPatient;
+        number = nextNumber;
+        ++nextNumber;
     }
     
-    public String name() { return name; }
+    public Patient patient() { return patient; }
     
     public int number() { return number; }
 }

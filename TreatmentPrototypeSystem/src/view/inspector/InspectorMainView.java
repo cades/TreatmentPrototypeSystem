@@ -1,6 +1,9 @@
 package view.inspector;
 
 import java.awt.BorderLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 import javax.swing.JPanel;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
@@ -32,6 +35,13 @@ public class InspectorMainView extends JFrame {
         this.setSize(300, 200);
         this.setContentPane(getJContentPane());
         this.setTitle("檢查人員主畫面");
+        me.login(this);
+        this.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.out.println("" + me.name() + me.occupation() + "登出");
+                me.logout();
+                }
+        });
     }
 
     /**

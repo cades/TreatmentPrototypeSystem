@@ -14,6 +14,7 @@ public class DoctorMainTabbedPane extends JTabbedPane {
     private SeeCaseHistoryPanel seeCaseHistoryPanel = null;
     private SeeMedicinesPanel seeMedicinesPanel = null;
     private SeeInspectionReportPanel seeInspectionReportPanel = null;
+    private SeeRegisteredPatientFoundamentalDataPanel seeRegisteredPatientFoundamentalDataPanel = null;
      
     /**
      * This is the default constructor
@@ -35,6 +36,7 @@ public class DoctorMainTabbedPane extends JTabbedPane {
         this.addTab("看病歷", null, getSeeCaseHistoryPanel(), null);
         this.addTab("查藥品庫存", null, getSeeMedicinesPanel(), null);
         this.addTab("看檢查報告", null, getSeeInspectionReportPanel(), null);
+        this.addTab("看掛號病人", null, getSeeRegisteredPatientFoundamentalDataPanel(), null);
     }
 
     /**
@@ -85,6 +87,19 @@ public class DoctorMainTabbedPane extends JTabbedPane {
             //seeInspectionReportPanel.setLayout(null);
         }
         return seeInspectionReportPanel;
+    }
+
+    /**
+     * This method initializes seeRegisteredPatientFoundamentalDataPanel	
+     * 	
+     * @return javax.swing.JPanel	
+     */
+    private SeeRegisteredPatientFoundamentalDataPanel getSeeRegisteredPatientFoundamentalDataPanel() {
+        if (seeRegisteredPatientFoundamentalDataPanel == null) {
+            seeRegisteredPatientFoundamentalDataPanel = new SeeRegisteredPatientFoundamentalDataPanel();
+            //seeRegisteredPatientFoundamentalDataPanel.setLayout(new GridBagLayout());
+        }
+        return seeRegisteredPatientFoundamentalDataPanel;
     }
 
 }  //  @jve:decl-index=0:visual-constraint="10,10"

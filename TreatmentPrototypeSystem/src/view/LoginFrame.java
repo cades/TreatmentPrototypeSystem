@@ -10,6 +10,8 @@ import javax.swing.event.*;
 
 import control.LoginControl;
 
+import storage.staff.Doctor;
+import storage.staff.DoctorStorage;
 import storage.staff.Occupation;
 import storage.staff.Staff;
 import storage.staff.StaffStorage;
@@ -96,6 +98,14 @@ public class LoginFrame extends JFrame{
 	            // 確定抓得到，還是要view自己抓。這裡就不透過control了，太冗了。
 	            switch( StaffStorage.Instance().get(id.getText()).occupation() ) {
 	            case doctor:
+	                // 登入（來上班）的人才加入所屬職業的storage
+	                Doctor doctor = new Doctor(
+	                        aStaff.name(),
+	                        aStaff.email(),
+	                        aStaff.occupation(),
+	                        aStaff.id(),
+	                        aStaff.password()
+	                        );
 	                new DoctorMainView(aStaff).setVisible(true);
 	                break;
 	            case nurse:

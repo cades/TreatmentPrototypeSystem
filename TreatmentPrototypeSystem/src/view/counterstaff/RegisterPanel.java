@@ -1,16 +1,24 @@
 package view.counterstaff;
 
-import java.awt.BorderLayout;
 import javax.swing.JPanel;
-import javax.swing.JFrame;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
+import java.util.Collection;
+import java.util.Iterator;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+
+import list.DiagnosisRecord;
+
+import storage.patient.Patient;
+import storage.patient.PatientStorage;
+import storage.staff.Doctor;
+import storage.staff.DoctorStorage;
+
 
 
 public class RegisterPanel extends JPanel {
@@ -93,7 +101,6 @@ public class RegisterPanel extends JPanel {
             departmentComboBox = new JComboBox();
             departmentComboBox.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {
-                    System.out.println("actionPerformed()"); // TODO Auto-generated Event stub actionPerformed()
                     updateDoctorComboBox();
                 }
             });
@@ -131,12 +138,33 @@ public class RegisterPanel extends JPanel {
             submit.setText("確定排進看診列表");
             submit.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {
-                    if (!patientId.getText().equals("") &&
-                            departmentComboBox.getSelectedItem() != null &&
-                            doctorComboBox.getSelectedItem() != null) {
-                        System.out.println("假裝有掛號"); // TODO: 完成資料結構的插入
-                    } else {
+                    Patient p;
+                    if (patientId.getText().equals("") ||
+                            departmentComboBox.getSelectedItem() == null ||
+                            doctorComboBox.getSelectedItem() == null) {
                         JOptionPane.showMessageDialog(null, "不能有欄位空白喔！請再檢查一次:)");
+                    } else if((p = PatientStorage.Instance().get(patientId.getText())) == null) {
+                        JOptionPane.showMessageDialog(null, "找不到這個病人耶！你確定ID是對的嗎？");
+                    } else {
+                        Collection<Doctor> c = DoctorStorage.Instance().values();
+                        Iterator<Doctor> iter = c.iterator();
+                        Doctor d = null;
+                        // 用名字找醫生
+                        while(iter.hasNext()) {
+                            d = iter.next();
+                            if(d.name().equals(doctorComboBox.getSelectedItem())) {
+                                //掛號：把病人加到他的看診列表
+                                d.diagnosisList().add(new DiagnosisRecord(p));
+                                //d.mainFrameInUse().validate(); // update GUI
+                                JOptionPane.showMessageDialog(null, "成功加入看診列表！YA!");
+                                return;
+                            } // TODO: 有潛在的bug. 如果有兩個同名醫生怎辦？
+                        }
+                        JOptionPane.showMessageDialog(null, "Sorry, 這個醫生現在沒有上班喔！");
+                        
+                        if(d == null) JOptionPane.showMessageDialog(null, "其實，這家醫院...\n沒 有 醫 生");
+                        // TODO: 可以去StaffStorage找是不是有這個人
+                        //JOptionPane.showMessageDialog(null, "找不到"+ doctorComboBox.getSelectedItem() + "醫生耶!他應該不在這裡上班吧？");
                     }
                 }
             });
@@ -163,10 +191,11 @@ public class RegisterPanel extends JPanel {
         doctorComboBox.removeAllItems();
         if (aDepart.equals("內科")) { // TODO: 這裡藥做到自動化恐怕是很以後的事了  就先將吧
             doctorComboBox.addItem("Dr. 古蕾娃");
+            doctorComboBox.addItem("黑傑克");
         } else if  (aDepart.equals("外科")) {
             doctorComboBox.addItem("Dr. 西爾爾克");
         } else if  (aDepart.equals("小兒科")) {
-            doctorComboBox.addItem("Dr. 多尼多尼．喬巴");
+            doctorComboBox.addItem("喬巴");
             doctorComboBox.addItem("Dr. 古蕾娃");
         } else {}
     }

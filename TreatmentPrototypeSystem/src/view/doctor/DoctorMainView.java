@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 
 import storage.staff.Staff;
 import java.awt.Dimension;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import list.DiagnosisList;
 
@@ -37,6 +39,13 @@ public class DoctorMainView extends JFrame {
         this.setSize(521, 208);
         this.setContentPane(getJContentPane());
         this.setTitle("醫生主畫面");
+        me.login(this);
+        this.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.out.println("" + me.name() + me.occupation() + "登出");
+                me.logout();
+                }
+        });
     }
 
     /**
