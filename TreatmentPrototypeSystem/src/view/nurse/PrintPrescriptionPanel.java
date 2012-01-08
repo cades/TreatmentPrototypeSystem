@@ -1,11 +1,12 @@
 package view.nurse;
 
 import java.awt.GridBagLayout;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
+
+import javax.swing.*;
 import java.awt.GridBagConstraints;
-import javax.swing.JTextField;
-import javax.swing.JButton;
+
+import storage.patient.PatientStorage;
+
 import java.awt.Dimension;
 
 public class PrintPrescriptionPanel extends JPanel {
@@ -71,6 +72,23 @@ public class PrintPrescriptionPanel extends JPanel {
         if (query == null) {
             query = new JButton();
             query.setText("查詢藥單");
+            /* by 丁丁 
+        	 * 學習view.doctor.SeePatientFoundamentalDataPanel.java的寫法
+        	 */
+            query.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent e) {
+                    PatientStorage patients = PatientStorage.Instance();
+                    if(patients.get(patientName.getText()) == null) {
+                        JOptionPane.showMessageDialog(null, "查無此人喔！");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "是否已繳費：\n收費者：\n是否領藥：\n開藥人：\n日期：\n內容：\n");
+                        
+                    }
+                }
+            });
+            /* by 丁丁 
+        	 * 學習view.doctor.SeePatientFoundamentalDataPanel.java的寫法
+        	 */
         }
         return query;
     }
