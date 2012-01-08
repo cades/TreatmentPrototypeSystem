@@ -34,7 +34,7 @@ public class InspectorMainView extends JFrame {
      * @return void
      */
     private void initialize() {
-        this.setSize(300, 200);
+        this.setSize(400, 200);
         this.setContentPane(getJContentPane());
         this.setTitle("檢查人員主畫面");
         this.addWindowListener(new WindowAdapter() {
