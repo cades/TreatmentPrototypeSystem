@@ -34,7 +34,7 @@ public class PharmacistMainView extends JFrame {
      * @return void
      */
     private void initialize() {
-        this.setSize(300, 200);
+        this.setSize(390, 200);
         this.setContentPane(getJContentPane());
         this.setTitle("藥劑師主畫面");
         this.addWindowListener(new WindowAdapter() {
