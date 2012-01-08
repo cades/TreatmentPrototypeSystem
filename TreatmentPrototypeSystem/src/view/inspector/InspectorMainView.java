@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 
+import control.LoginoutControl;
+
 import storage.staff.Staff;
 
 public class InspectorMainView extends JFrame {
@@ -35,11 +37,10 @@ public class InspectorMainView extends JFrame {
         this.setSize(300, 200);
         this.setContentPane(getJContentPane());
         this.setTitle("檢查人員主畫面");
-        me.login(this);
         this.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 System.out.println("" + me.name() + me.occupation() + "登出");
-                me.logout();
+                new LoginoutControl().logout(me);
                 }
         });
     }

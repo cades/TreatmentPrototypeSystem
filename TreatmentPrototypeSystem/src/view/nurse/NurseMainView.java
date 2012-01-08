@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
 
+import control.LoginoutControl;
+
 import storage.staff.Staff;
 import java.awt.Dimension;
 import java.awt.event.WindowAdapter;
@@ -35,11 +37,10 @@ public class NurseMainView extends JFrame {
         this.setSize(408, 307);
         this.setContentPane(getJContentPane());
         this.setTitle("護士主畫面");
-        me.login(this);
         this.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 System.out.println("" + me.name() + me.occupation() + "登出");
-                me.logout();
+                new LoginoutControl().logout(me);
                 }
         });
     }

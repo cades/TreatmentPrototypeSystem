@@ -8,7 +8,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 
-import control.LoginControl;
+import control.LoginoutControl;
 
 import storage.staff.Doctor;
 import storage.staff.DoctorStorage;
@@ -32,7 +32,7 @@ public class LoginFrame extends JFrame{
      *     不過想不到更好的作法了，因為main一new LoginFrame，所有權就被搶了。
      * *.  我發現，循序圖有個盲點：物件的生成時間。還有B、C、E之間的從屬關係，沒有明確規範
      */
-    LoginControl control;
+    LoginoutControl control;
     Staff aStaff;
     
 	JLabel idLabel,pwdLabel;
@@ -43,7 +43,7 @@ public class LoginFrame extends JFrame{
 	
 	
 	public LoginFrame() {
-	    control = new LoginControl();  // 生成控制物件
+	    control = new LoginoutControl();  // 生成控制物件
 	    control.setStorage(StaffStorage.Instance());    // 連結控制物件與資料庫
 	    
 	    setupGUI();
@@ -94,44 +94,8 @@ public class LoginFrame extends JFrame{
 	
 	private void button_actionPerformed(ActionEvent e) {
 	    if (e.getSource().equals(submit)) {
-            if ( (aStaff = control.login(id.getText(), pwd.getText()) ) != null ) { // 判斷登入成功
-	            // 確定抓得到，還是要view自己抓。這裡就不透過control了，太冗了。
-	            switch( StaffStorage.Instance().get(id.getText()).occupation() ) {
-	            case doctor:
-	                // 登入（來上班）的人才加入所屬職業的storage
-	                Doctor doctor = new Doctor(
-	                        aStaff.name(),
-	                        aStaff.email(),
-	                        aStaff.occupation(),
-	                        aStaff.id(),
-	                        aStaff.password()
-	                        );
-	                new DoctorMainView(aStaff).setVisible(true);
-	                break;
-	            case nurse:
-	                new NurseMainView(aStaff).setVisible(true);
-	                break;
-	            case counterStaff:
-	                new CounterStaffMainView(aStaff).setVisible(true);
-	                break;
-	            case inspector:
-	                new InspectorMainView(aStaff).setVisible(true);
-	                break;
-	            case pharmacist:
-	                new PharmacistMainView(aStaff).setVisible(true); 
-	                break;
-                default:
-                    System.out.println("未知的職業 ？！結束程式...");
-                    System.exit(ERROR);
-	            }
-	            //this.setVisible(false); // 也可以不要設成false，可以大玩「單機多人登入」:)
-	            JOptionPane.showMessageDialog(null, "歡迎登入，" + aStaff.name() + aStaff.occupation() + "。");
-	        } else {
-	            JOptionPane.showMessageDialog(null, "登入失敗。");
-	        }
-            /**
-             * 增刪修查不必新增control，直接做在view裡面更能減少複雜性。
-             */
+	        control.login(id.getText(), pwd.getText());
+	        //this.setVisible(false); // 也可以不要設成false，可以大玩「單機多人登入」:)
 	  }
 	}
 }

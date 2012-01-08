@@ -155,14 +155,14 @@ public class RegisterPanel extends JPanel {
                             if(d.name().equals(doctorComboBox.getSelectedItem())) {
                                 //掛號：把病人加到他的看診列表
                                 d.diagnosisList().add(new DiagnosisRecord(p));
-                                //d.mainFrameInUse().validate(); // update GUI
+                                // TODO: 如果醫生正在納涼，要通知他有病人上門了
                                 JOptionPane.showMessageDialog(null, "成功加入看診列表！YA!");
                                 return;
                             } // TODO: 有潛在的bug. 如果有兩個同名醫生怎辦？
                         }
                         JOptionPane.showMessageDialog(null, "Sorry, 這個醫生現在沒有上班喔！");
                         
-                        if(d == null) JOptionPane.showMessageDialog(null, "其實，這家醫院...\n沒 有 醫 生");
+                        if(d == null) JOptionPane.showMessageDialog(null, "其實，這家醫院...\n沒 有 醫 生 上 班");
                         // TODO: 可以去StaffStorage找是不是有這個人
                         //JOptionPane.showMessageDialog(null, "找不到"+ doctorComboBox.getSelectedItem() + "醫生耶!他應該不在這裡上班吧？");
                     }
