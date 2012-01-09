@@ -11,6 +11,7 @@ import javax.swing.JTabbedPane;
 import control.LoginoutControl;
 
 import storage.staff.Staff;
+import java.awt.Dimension;
 
 public class InspectorMainView extends JFrame {
     Staff me;
@@ -34,7 +35,7 @@ public class InspectorMainView extends JFrame {
      * @return void
      */
     private void initialize() {
-        this.setSize(400, 200);
+        this.setSize(514, 316);
         this.setContentPane(getJContentPane());
         this.setTitle("檢查人員主畫面");
         this.addWindowListener(new WindowAdapter() {
@@ -71,4 +72,4 @@ public class InspectorMainView extends JFrame {
         return inspectorMainTabbedPane;
     }
 
-}
+}  //  @jve:decl-index=0:visual-constraint="10,10"

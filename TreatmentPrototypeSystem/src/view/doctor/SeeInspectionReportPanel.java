@@ -4,9 +4,20 @@ import java.awt.GridBagLayout;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+
+import storage.inspectionreport.InspectionDivision;
+import storage.inspectionreport.InspectionReport;
+import storage.inspectionreport.InspectionReportStorage;
+import storage.patient.PatientStorage;
 
 public class SeeInspectionReportPanel extends JPanel {
 
@@ -71,6 +82,32 @@ public class SeeInspectionReportPanel extends JPanel {
         if (submit == null) {
             submit = new JButton();
             submit.setText("查詢");
+            submit.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent e) {
+                    if (id.getText().equals("") ||
+                            inspectionItem.getSelectedItem() == null) {
+                        JOptionPane.showMessageDialog(null, "不能有欄位空白喔！請再檢查一次:)");
+                    } else if((PatientStorage.Instance().get(id.getText())) == null) {
+                        JOptionPane.showMessageDialog(null, "找不到這個病人耶！你確定ID是對的嗎？");
+                    } else {
+                        // 把找到的每一份檢報都秀出來
+                        List matchedReports = new LinkedList();
+                        Iterator iter = InspectionReportStorage.Instance().iterator();
+                        while (iter.hasNext()) {
+                            InspectionReport report = (InspectionReport)iter.next();
+                            if(report.patientId().equals(id.getText()) &&
+                                    report.inspectionDivision().equals(inspectionItem.getSelectedItem())) {
+                                JOptionPane.showMessageDialog(null,
+                                        "病人id   : " + report.patientId() + "\n" +
+                                        "檢查項目  : " + report.inspectionDivision() + "\n" +
+                                        "報告內容  : " + report.content() + "\n" +
+                                        "負責檢員  : " + report.inspectorInChargeId() + "\n"
+                                        );
+                            }
+                        }
+                    }
+                }
+            });
         }
         return submit;
     }
@@ -96,11 +133,9 @@ public class SeeInspectionReportPanel extends JPanel {
     private JComboBox getInspectionItem() {
         if (inspectionItem == null) {
             inspectionItem = new JComboBox();
-            inspectionItem.addItem("血壓");
-            inspectionItem.addItem("心跳");
-            inspectionItem.addItem("腦波");
-            inspectionItem.addItem("X光");
-            inspectionItem.addItem("胃視鏡");
+            for (InspectionDivision d : InspectionDivision.values()) {
+                inspectionItem.addItem(d);
+            }
         }
         return inspectionItem;
     }

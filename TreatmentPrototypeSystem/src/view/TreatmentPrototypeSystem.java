@@ -1,8 +1,11 @@
 package view;
 
+import storage.Hospital;
+import storage.InspectionPlace;
 import storage.staff.Occupation;
 import storage.staff.Staff;
 import storage.staff.StaffStorage;
+import storage.inspectionreport.InspectionDivision;
 import storage.patient.*;
 
 public class TreatmentPrototypeSystem {
@@ -33,6 +36,10 @@ public class TreatmentPrototypeSystem {
         PatientStorage.Instance().put("lufy", new Patient("魯夫", 21, "male", "lufy"));
         PatientStorage.Instance().put("brook", new Patient("布魯克", 50, "male", "brook"));
         
+        // 檢查處
+        for (InspectionDivision d : InspectionDivision.values()) {
+            Hospital.Instance().inspectionPlaces().put(d, new InspectionPlace(d));
+        }
     }
 }
 
