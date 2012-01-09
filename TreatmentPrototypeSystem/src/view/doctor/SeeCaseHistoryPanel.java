@@ -1,11 +1,19 @@
 package view.doctor;
 
 import java.awt.GridBagLayout;
+
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
+import java.util.Iterator;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
+import storage.casehistory.CaseHistory;
+import storage.casehistory.CaseHistoryStorage;
+import storage.patient.PatientStorage;
 
 public class SeeCaseHistoryPanel extends JPanel {
 
@@ -70,6 +78,27 @@ public class SeeCaseHistoryPanel extends JPanel {
         if (submit == null) {
             submit = new JButton();
             submit.setText("看病歷");
+            submit.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent e) {
+                    PatientStorage patients = PatientStorage.Instance();
+                    if(patients.get(id.getText()) == null) {
+                        JOptionPane.showMessageDialog(null, "查無此人喔！");
+                    } else {
+                        Iterator<CaseHistory> iter = CaseHistoryStorage.Instance().iterator();
+                        while (iter.hasNext()) {
+                            CaseHistory aCase = (CaseHistory)iter.next();
+                            if (aCase.patientId().equals(id.getText())) {
+                                JOptionPane.showMessageDialog(null,
+                                        "病人ID  :" + aCase.patientId() + "\n" +
+                                        "看診醫生 :" + aCase.doctorInChargeId() + "\n" +
+                                        "就醫時間 :" + aCase.time() +  "\n" +
+                                        "內容    :" + aCase.content()
+                                        );
+                            }
+                        }
+                    }
+                }
+            });
         }
         return submit;
     }

@@ -76,9 +76,9 @@ public class WritePrescriptionPanel extends JPanel {
     }
 
     /**
-     * This method initializes id	
-     * 	
-     * @return javax.swing.JTextField	
+     * This method initializes id   
+     *  
+     * @return javax.swing.JTextField   
      */
     private JTextField getId() {
         if (id == null) {
@@ -89,9 +89,9 @@ public class WritePrescriptionPanel extends JPanel {
     }
 
     /**
-     * This method initializes content	
-     * 	
-     * @return javax.swing.JTextArea	
+     * This method initializes content  
+     *  
+     * @return javax.swing.JTextArea    
      */
     private JTextArea getContent() {
         if (content == null) {
@@ -101,9 +101,9 @@ public class WritePrescriptionPanel extends JPanel {
     }
 
     /**
-     * This method initializes submit	
-     * 	
-     * @return javax.swing.JButton	
+     * This method initializes submit   
+     *  
+     * @return javax.swing.JButton  
      */
     private JButton getSubmit() {
         if (submit == null) {
@@ -111,13 +111,18 @@ public class WritePrescriptionPanel extends JPanel {
             submit.setText("確認送出");
             submit.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {
-                    PrescriptionStorage.Instance().add(
-                            new Prescription(
-                                    id.getText(),
-                                    null,
-                                    content.getText()
-                                    ));
-                    JOptionPane.showMessageDialog(null, "您寫好的藥單已經存進系統了！");
+                    PatientStorage patients = PatientStorage.Instance();
+                    if(patients.get(id.getText()) == null) {
+                        JOptionPane.showMessageDialog(null, "查無此人喔！");
+                    } else {
+                        PrescriptionStorage.Instance().add(
+                                new Prescription(
+                                        id.getText(),
+                                        null,
+                                        content.getText()
+                                        ));
+                        JOptionPane.showMessageDialog(null, "您寫好的藥單已經存進系統了！");
+                    }
                 }
             });
         }
@@ -125,9 +130,9 @@ public class WritePrescriptionPanel extends JPanel {
     }
 
     /**
-     * This method initializes query	
-     * 	
-     * @return javax.swing.JButton	
+     * This method initializes query    
+     *  
+     * @return javax.swing.JButton  
      */
     private JButton getQuery() {
         if (query == null) {
