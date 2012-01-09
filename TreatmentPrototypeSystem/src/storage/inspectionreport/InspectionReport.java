@@ -4,6 +4,6 @@ import java.util.Date;
 
 public class InspectionReport {
     String inspectorInChargeId;
-    String inspectionDivision;// TODO: 型別未定！
+    InspectionDivision inspectionDivision;
     Date time;
 }
