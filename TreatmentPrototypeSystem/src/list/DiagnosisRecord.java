@@ -12,7 +12,7 @@ public class DiagnosisRecord {
     public DiagnosisRecord(Patient aPatient) {
         patient = aPatient;
         number = nextNumber;
-        ++nextNumber;
+        nextNumber = (nextNumber + 1) % 100;
     }
     
     public Patient patient() { return patient; }

@@ -4,15 +4,24 @@ import java.awt.GridBagLayout;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
+
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+
+import list.InspectionRecord;
+
+import storage.Hospital;
+import storage.InspectionPlace;
+import storage.inspectionreport.InspectionDivision;
+import storage.patient.PatientStorage;
 
 public class ArrangeInpectionPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
     private JLabel jLabel = null;
-    private JTextField patientName = null;
+    private JTextField id = null;
     private JComboBox division = null;
     private JLabel jLabel1 = null;
     private JButton submit = null;
@@ -57,23 +66,23 @@ public class ArrangeInpectionPanel extends JPanel {
         this.setSize(300, 200);
         this.setLayout(new GridBagLayout());
         this.add(jLabel, gridBagConstraints);
-        this.add(getPatientName(), gridBagConstraints7);
+        this.add(getId(), gridBagConstraints7);
         this.add(getDivision(), gridBagConstraints8);
         this.add(jLabel1, gridBagConstraints10);
         this.add(getSubmit(), gridBagConstraints11);
     }
 
     /**
-     * This method initializes patientName	
+     * This method initializes id	
      * 	
      * @return javax.swing.JTextField	
      */
-    private JTextField getPatientName() {
-        if (patientName == null) {
-            patientName = new JTextField();
-            patientName.setColumns(10);
+    private JTextField getId() {
+        if (id == null) {
+            id = new JTextField();
+            id.setColumns(10);
         }
-        return patientName;
+        return id;
     }
 
     /**
@@ -84,6 +93,9 @@ public class ArrangeInpectionPanel extends JPanel {
     private JComboBox getDivision() {
         if (division == null) {
             division = new JComboBox();
+            for (InspectionDivision d : InspectionDivision.values()) {
+                division.addItem(d);
+            }
         }
         return division;
     }
@@ -97,6 +109,19 @@ public class ArrangeInpectionPanel extends JPanel {
         if (submit == null) {
             submit = new JButton();
             submit.setText("送出");
+            submit.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent e) {
+                    PatientStorage patients = PatientStorage.Instance();
+                    if(patients.get(id.getText()) == null) {
+                        JOptionPane.showMessageDialog(null, "查無此人喔！");
+                    } else {
+                        // 找到對的檢查處，排進檢查列表
+                        InspectionPlace place =  Hospital.Instance().inspectionPlaces().get(division.getSelectedItem());
+                        place.inspectionList().add(new InspectionRecord(patients.get(id.getText())));
+                        JOptionPane.showMessageDialog(null, "超快速的幫你安排好了唷:目");
+                    }
+                }
+            });
         }
         return submit;
     }

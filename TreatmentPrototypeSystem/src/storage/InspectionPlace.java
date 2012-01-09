@@ -11,5 +11,8 @@ public class InspectionPlace {
     
     public InspectionPlace(InspectionDivision d) {
         division = d;
+        inspectionList = new InspectionList();
     }
+    
+    public InspectionList inspectionList() { return inspectionList; }
 }
