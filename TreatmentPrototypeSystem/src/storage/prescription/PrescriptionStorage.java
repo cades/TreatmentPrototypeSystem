@@ -11,7 +11,7 @@ public class PrescriptionStorage extends ArrayList<Prescription>{
     
     private static PrescriptionStorage _instance = null;
     protected PrescriptionStorage() { super(); }
-    public PrescriptionStorage Instance() {
+    public static PrescriptionStorage Instance() {
         if (_instance == null) {
             _instance = new PrescriptionStorage();
         }

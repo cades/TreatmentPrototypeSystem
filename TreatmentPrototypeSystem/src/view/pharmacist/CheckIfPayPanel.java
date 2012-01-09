@@ -2,6 +2,7 @@ package view.pharmacist;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.util.Iterator;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -10,14 +11,16 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import storage.patient.PatientStorage;
+import storage.prescription.Prescription;
+import storage.prescription.PrescriptionStorage;
 
 public class CheckIfPayPanel extends JPanel  {
 
     private static final long serialVersionUID = 1L;
     private JLabel jLabel = null;
-    private JLabel resultLabel = null;
-    private JTextField patientName = null;
+    private JTextField id = null;
     private JButton query = null;
+    private JLabel resultLabel = null;
 
     /**
      * This is the default constructor
@@ -32,6 +35,11 @@ public class CheckIfPayPanel extends JPanel  {
      * @return void
      */
     private void initialize() {
+        GridBagConstraints gridBagConstraints6 = new GridBagConstraints();
+        gridBagConstraints6.gridx = 1;
+        gridBagConstraints6.gridy = 1;
+        resultLabel = new JLabel();
+        resultLabel.setText("");
         GridBagConstraints gridBagConstraints2 = new GridBagConstraints();
         gridBagConstraints2.gridx = 2;
         gridBagConstraints2.gridy = 0;
@@ -43,33 +51,27 @@ public class CheckIfPayPanel extends JPanel  {
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        GridBagConstraints gridBagConstraints3 = new GridBagConstraints();
-        gridBagConstraints3.gridx = 0;
-        //gridBagConstraints3.weightx = 1.0;
-        gridBagConstraints3.gridy = 1;
         jLabel = new JLabel();
-        resultLabel = new JLabel();
-        resultLabel.setVisible(false);
         jLabel.setText("病人ID");
         this.setSize(390, 311);
         this.setLayout(new GridBagLayout());
         this.add(jLabel, gridBagConstraints);
-        this.add(getPatientName(), gridBagConstraints1);
+        this.add(getId(), gridBagConstraints1);
         this.add(getQuery(), gridBagConstraints2);
-        this.add(resultLabel, gridBagConstraints3);
+        this.add(resultLabel, gridBagConstraints6);
     }
     
     /**
-     * This method initializes patientName	
+     * This method initializes id	
      * 	
      * @return javax.swing.JTextField	
      */
-    private JTextField getPatientName() {
-        if (patientName == null) {
-            patientName = new JTextField();
-            patientName.setColumns(10);
+    private JTextField getId() {
+        if (id == null) {
+            id = new JTextField();
+            id.setColumns(10);
         }
-        return patientName;
+        return id;
     }
 
     /**
@@ -87,13 +89,21 @@ public class CheckIfPayPanel extends JPanel  {
             query.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {
                     PatientStorage patients = PatientStorage.Instance();
-                    if(patients.get(patientName.getText()) == null) {
+                    if(patients.get(id.getText()) == null) {
                         JOptionPane.showMessageDialog(null, "查無此人喔！");
                     } else {
-                    	resultLabel.setText(patientName.getText() + "：已批價／未批價");
-                    	resultLabel.setVisible(true);
-                        
-                        
+                        Iterator<Prescription> iter = PrescriptionStorage.Instance().iterator();
+                        while (iter.hasNext()) {
+                            Prescription pres = (Prescription)iter.next();
+                            if (pres.patientId().equals(id.getText())) {
+                                if (pres.isMoneyPaid())
+                                    resultLabel.setText(id.getText() + "：已批價");
+                                else
+                                    resultLabel.setText(id.getText() + "：未批價");
+                                return;
+                            }
+                        }
+                        JOptionPane.showMessageDialog(null, "醫生沒有給這位病人開藥單呢！");
                     }
                 }
             });
