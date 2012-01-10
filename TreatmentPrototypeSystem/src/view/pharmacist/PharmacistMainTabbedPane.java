@@ -2,9 +2,6 @@ package view.pharmacist;
 
 import javax.swing.JTabbedPane;
 
-import view.nurse.ArrangeInpectionPanel;
-import view.nurse.PrintPrescriptionPanel;
-
 public class PharmacistMainTabbedPane extends JTabbedPane {
 
     private static final long serialVersionUID = 1L;

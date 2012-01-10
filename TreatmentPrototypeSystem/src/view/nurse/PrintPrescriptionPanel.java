@@ -6,6 +6,7 @@ import javax.swing.*;
 
 import java.awt.GridBagConstraints;
 
+import storage.medicine.Medicine;
 import storage.patient.PatientStorage;
 import storage.prescription.Prescription;
 import storage.prescription.PrescriptionStorage;
@@ -95,7 +96,7 @@ public class PrintPrescriptionPanel extends JPanel {
                                         "是否領藥：" + pres.isMedicineReceived() + "\n" +
                                         "開藥人：" + pres.doctorInChargeId() + "\n" +
                                         "日期：" + pres.time() + "\n" +
-                                        "內容：" + pres.content() + "\n");
+                                        "內容：\n\n" + Prescription.medicinesToString(pres.medicines()) + "\n");
                             }
                         }
                     }

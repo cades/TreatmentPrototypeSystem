@@ -6,14 +6,16 @@ import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+import javax.swing.JTextArea;
+
+import storage.medicine.MedicineStocks;
+import storage.prescription.Prescription;
 
 public class SeeMedicinesPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
-    private JLabel jLabel = null;
-    private JComboBox medicines = null;
-    private JButton submit = null;
-
+    private JTextArea content = null;
+    private JButton refresh = null;
     /**
      * This is the default constructor
      */
@@ -28,54 +30,50 @@ public class SeeMedicinesPanel extends JPanel {
      * @return void
      */
     private void initialize() {
-        GridBagConstraints gridBagConstraints2 = new GridBagConstraints();
-        gridBagConstraints2.gridx = 2;
-        gridBagConstraints2.gridy = 0;
-        GridBagConstraints gridBagConstraints1 = new GridBagConstraints();
-        gridBagConstraints1.fill = GridBagConstraints.VERTICAL;
-        gridBagConstraints1.gridy = 0;
-        gridBagConstraints1.weightx = 1.0;
-        gridBagConstraints1.gridx = 1;
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        jLabel = new JLabel();
-        jLabel.setText("選擇藥品");
+        GridBagConstraints gridBagConstraints13 = new GridBagConstraints();
+        gridBagConstraints13.fill = GridBagConstraints.BOTH;
+        gridBagConstraints13.gridy = 0;
+        gridBagConstraints13.weightx = 1.0;
+        gridBagConstraints13.weighty = 1.0;
+        gridBagConstraints13.gridx = 0;
         this.setSize(300, 200);
         this.setLayout(new GridBagLayout());
-        this.add(jLabel, gridBagConstraints);
-        this.add(getMedicines(), gridBagConstraints1);
-        this.add(getSubmit(), gridBagConstraints2);
+        this.add(getContent(), gridBagConstraints13);
+        this.add(getRefresh(), gridBagConstraints);
     }
 
     /**
-     * This method initializes medicines	
+     * This method initializes content	
      * 	
-     * @return javax.swing.JComboBox	
+     * @return javax.swing.JTextArea	
      */
-    private JComboBox getMedicines() {
-        if (medicines == null) {
-            medicines = new JComboBox();
-            medicines.addItem("A");
-            medicines.addItem("B");
-            medicines.addItem("C");
-            medicines.addItem("藍波球");
-            medicines.addItem("可樂");
+    private JTextArea getContent() {
+        if (content == null) {
+            content = new JTextArea();
+            content.setText(Prescription.medicinesToString(MedicineStocks.Instance()));
         }
-        return medicines;
+        return content;
     }
 
     /**
-     * This method initializes submit	
+     * This method initializes refresh	
      * 	
      * @return javax.swing.JButton	
      */
-    private JButton getSubmit() {
-        if (submit == null) {
-            submit = new JButton();
-            submit.setText("查看");
+    private JButton getRefresh() {
+        if (refresh == null) {
+            refresh = new JButton();
+            refresh.setText("重新整理");
+            refresh.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent e) {
+                    content.setText(Prescription.medicinesToString(MedicineStocks.Instance()));
+                }
+            });
         }
-        return submit;
+        return refresh;
     }
 
 }
