@@ -12,21 +12,31 @@ public class DingTimer extends TimerTask{
 	long period;
 	String message;
 	RemindFrame remindFrame;
+	Timer timer;
 	public DingTimer(String role, long  period, String message) {
 		this.role = role;
 		this.period = period;
 		this.message = message;
 		this.remindFrame = new RemindFrame(role,message);
-		Timer timer = new Timer();
+		timer = new Timer();
 		timer.schedule(this, period,period);
 	}
 	public static void main(String [] args){
-		new DingTimer("醫生", 5000 ,"巡診囉");
+		DingTimer d = new DingTimer("醫生", 1000 ,"巡診囉");
+		try {
+			Thread.sleep(3000);
+			d.doCancel();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 	@Override
 	public void run() {
 		//System.out.println("to:" + role  + " " + message);
 		this.remindFrame.setVisible(true);
+	}
+	public void doCancel(){
+		timer.cancel();
 	}
 	
 }
