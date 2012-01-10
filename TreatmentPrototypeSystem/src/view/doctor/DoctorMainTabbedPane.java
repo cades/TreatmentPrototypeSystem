@@ -18,6 +18,7 @@ public class DoctorMainTabbedPane extends JTabbedPane {
     private WritePrescriptionPanel writePrescriptionPanel = null;
     private WriteCaseHistoryPanel writeCaseHistoryPanel = null;
     private DecideHospitalizePanel decideHospitalizePanel = null;
+    private EmergencyTreatmentPanel emergencyTreatmentPanel = null;
      
     /**
      * This is the default constructor
@@ -43,6 +44,7 @@ public class DoctorMainTabbedPane extends JTabbedPane {
         this.addTab("開藥單", null, getWritePrescriptionPanel(), null);
         this.addTab("寫病歷", null, getWriteCaseHistoryPanel(), null);
         this.addTab("決定病人住院", null, getDecideHospitalizePanel(), null);
+        this.addTab("急診", null, getEmergencyTreatmentPanel(), null);
     }
 
     /**
@@ -145,6 +147,19 @@ public class DoctorMainTabbedPane extends JTabbedPane {
             //decideHospitalizePanel.setLayout(new GridBagLayout());
         }
         return decideHospitalizePanel;
+    }
+
+    /**
+     * This method initializes emergencyTreatmentPanel	
+     * 	
+     * @return javax.swing.JPanel	
+     */
+    private EmergencyTreatmentPanel getEmergencyTreatmentPanel() {
+        if (emergencyTreatmentPanel == null) {
+            emergencyTreatmentPanel = new EmergencyTreatmentPanel();
+            //emergencyTreatmentPanel.setLayout(new GridBagLayout());
+        }
+        return emergencyTreatmentPanel;
     }
 
 }  //  @jve:decl-index=0:visual-constraint="10,10"

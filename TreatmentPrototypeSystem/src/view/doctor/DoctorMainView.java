@@ -38,7 +38,7 @@ public class DoctorMainView extends JFrame {
      * @return void
      */
     private void initialize() {
-        this.setSize(540, 284);
+        this.setSize(827, 356);
         this.setContentPane(getJContentPane());
         this.setTitle("醫生主畫面");
         this.addWindowListener(new WindowAdapter() {
