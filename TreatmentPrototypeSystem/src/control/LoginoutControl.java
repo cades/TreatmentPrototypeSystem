@@ -44,8 +44,6 @@ public class LoginoutControl {
                     new CounterStaffMainView(aStaff).setVisible(true);
                     break;
                 case inspector:
-                    util.Utility.DEBUG(0, "" + aStaff.name() + "檢查員登入, 加入InspectorsStorage中");
-                    InspectorStorage.Instance().put(id, new Inspector(aStaff.name(), aStaff.email(), aStaff.occupation(), aStaff.id(), aStaff.password()));
                     new InspectorMainView(aStaff).setVisible(true);
                     break;
                 case pharmacist:
@@ -84,8 +82,6 @@ public class LoginoutControl {
         case counterStaff:
             break;
         case inspector:
-            util.Utility.DEBUG(0, "" + aStaff.name() + "檢查員登出, 移出InspectorsStorage");
-            InspectorStorage.Instance().remove(aStaff.id());
             break;
         case pharmacist:
             break;
