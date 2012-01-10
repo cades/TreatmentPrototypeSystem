@@ -89,6 +89,10 @@ public class LoginoutControl {
             break;
         case pharmacist:
             break;
+        case patrolNurse:
+            util.Utility.DEBUG(0, "" + aStaff.name() + "巡診護士登出, 移出PatrolNurseStorage");
+            PatrolNurseStorage.Instance().remove(aStaff.id());
+            break;
         default:
             System.out.println("未知的職業 ？！結束程式...");
             System.exit(1);

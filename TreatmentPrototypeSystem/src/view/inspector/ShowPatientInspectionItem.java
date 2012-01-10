@@ -13,6 +13,7 @@ import storage.patient.PatientStorage;
 import javax.swing.JComboBox;
 
 import list.InspectionRecord;
+import javax.swing.JButton;
 
 public class ShowPatientInspectionItem extends JPanel  {
 
@@ -22,6 +23,7 @@ public class ShowPatientInspectionItem extends JPanel  {
     private JTextField id = null;
     private JButton query = null;
     private JComboBox division = null;
+    private JButton submit = null;
 
     /**
      * This is the default constructor
@@ -36,6 +38,9 @@ public class ShowPatientInspectionItem extends JPanel  {
      * @return void
      */
     private void initialize() {
+        GridBagConstraints gridBagConstraints11 = new GridBagConstraints();
+        gridBagConstraints11.gridx = 2;
+        gridBagConstraints11.gridy = 3;
         GridBagConstraints gridBagConstraints31 = new GridBagConstraints();
         gridBagConstraints31.fill = GridBagConstraints.VERTICAL;
         gridBagConstraints31.gridy = 2;
@@ -68,6 +73,7 @@ public class ShowPatientInspectionItem extends JPanel  {
         this.add(getQuery(), gridBagConstraints2);
         this.add(resultTextArea, gridBagConstraints3);
         this.add(getDivision(), gridBagConstraints31);
+        this.add(getSubmit(), gridBagConstraints11);
     }
     
     /**
@@ -155,5 +161,43 @@ public class ShowPatientInspectionItem extends JPanel  {
             }
         }
         return division;
+    }
+    /**
+     * This method initializes submit	
+     * 	
+     * @return javax.swing.JButton	
+     */
+    private JButton getSubmit() {
+        if (submit == null) {
+            submit = new JButton();
+            submit.setText("檢查");
+            submit.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent e) {
+                    PatientStorage patients = PatientStorage.Instance();
+                    if(patients.get(id.getText()) == null) {
+                        JOptionPane.showMessageDialog(null, "查無此人喔！");
+                        resultTextArea.setText("");
+                        resultTextArea.setVisible(false);
+                    } else {
+                        // 版本一：找所有的檢查處
+                        for (InspectionDivision d : InspectionDivision.values()) {
+                            InspectionPlace place =  Hospital.Instance().inspectionPlaces().get(d);
+                            Iterator<InspectionRecord> iter = place.inspectionList().iterator();
+                            while (iter.hasNext()) {
+                                InspectionRecord record = (InspectionRecord)iter.next();
+                                // 如果這份檢查記錄的病人id跟輸入框的id一樣的話
+                                if (record.patient().id().equals(patients.get(id.getText()).id())) {
+                                    // 從檢查列表移出
+                                    place.inspectionList().remove(record);
+                                    // 顯示訊息
+                                    JOptionPane.showMessageDialog(null, id.getText()+"已經做完"+d+"檢查了");
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        return submit;
     }
 }

@@ -26,8 +26,13 @@ public class PatrolNurseMainView extends JFrame {
     public PatrolNurseMainView(Staff aStaff) {
         super();
         me = aStaff;
-        me.setMainFrame(this);
         initialize();
+        this.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.out.println("" + me.name() + me.occupation() + "登出");
+                new LoginoutControl().logout(me);
+                }
+        });
     }
 
     /**
