@@ -166,6 +166,10 @@ public class PrintPrescriptionPanel extends JPanel {
                         JOptionPane.showMessageDialog(null,"沒有藥單喔！");
                         return;
                     }
+                    if (!aPres.isMoneyPaid()) {
+                        JOptionPane.showMessageDialog(null,"您還沒有繳費，不能領藥唷！請先至櫃檯批價:)");
+                        return;
+                    }
                     // 扣庫存
                     for (Medicine m : Medicine.values()) {
                         if (aPres.medicines().get(m) != null) {

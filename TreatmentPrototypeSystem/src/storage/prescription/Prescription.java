@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.HashMap;
 
 import storage.medicine.Medicine;
+import storage.medicine.Price;
 
 public class Prescription {
     String counterStaffInChargeId;
@@ -35,14 +36,20 @@ public class Prescription {
     }
     
     public void giveMedicinesToPatient() { isMedicineReceived = true; }
+    public void pay() { isMoneyPaid = true; }
+    public void print() { isPrinted = true; }
     
     public String patientId() { return patientId; }
-    public boolean isMoneyPaid() { return isMoneyPaid; }
     public String counterStaffInChargeId() { return counterStaffInChargeId; }
-    public boolean isMedicineReceived() { return isMedicineReceived; }
     public String doctorInChargeId() { return doctorInChargeId; }
+    
+    public boolean isMoneyPaid() { return isMoneyPaid; }
+    public boolean isMedicineReceived() { return isMedicineReceived; }
+    public boolean isPrinted() { return isPrinted; }
+    
     public Date time() { return time; }
     public HashMap<Medicine, Integer> medicines() { return medicines; }
+    
     public static String medicinesToString(HashMap<Medicine, Integer> medicines) {
         String content = "";
         for (Medicine m : Medicine.values()) {
@@ -50,6 +57,14 @@ public class Prescription {
                 content = content + "藥品 " + m + " 共 " + medicines.get(m) + " 份\n";
         }
         return content;
+    }
+    
+    public int price() {
+        int sum = 0;
+        for (Medicine m : Medicine.values()) {
+            if(medicines.get(m) != null) sum = sum + medicines.get(m) * Price.get(m); // 數量乘以價格
+        }
+        return sum;
     }
     
 }

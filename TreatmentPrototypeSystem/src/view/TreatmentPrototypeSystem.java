@@ -5,6 +5,8 @@ import storage.InspectionPlace;
 import storage.staff.Occupation;
 import storage.staff.Staff;
 import storage.staff.StaffStorage;
+import storage.ward.Sickbed;
+import storage.ward.SickbedStorage;
 import storage.inspectionreport.InspectionDivision;
 import storage.patient.*;
 
@@ -39,6 +41,11 @@ public class TreatmentPrototypeSystem {
         // 檢查處
         for (InspectionDivision d : InspectionDivision.values()) {
             Hospital.Instance().inspectionPlaces().put(d, new InspectionPlace(d));
+        }
+        
+        // 病床
+        for (int i=1; i<=SickbedStorage.Instance().totalNumber(); i++) {
+            SickbedStorage.Instance().put(new Integer(i), new Sickbed(i, "", "", null));
         }
     }
 }

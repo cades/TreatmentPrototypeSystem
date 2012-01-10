@@ -17,6 +17,7 @@ public class DoctorMainTabbedPane extends JTabbedPane {
     private SeeRegisteredPatientFoundamentalDataPanel seeRegisteredPatientFoundamentalDataPanel = null;
     private WritePrescriptionPanel writePrescriptionPanel = null;
     private WriteCaseHistoryPanel writeCaseHistoryPanel = null;
+    private DecideHospitalizePanel decideHospitalizePanel = null;
      
     /**
      * This is the default constructor
@@ -41,6 +42,7 @@ public class DoctorMainTabbedPane extends JTabbedPane {
         this.addTab("看掛號病人", null, getSeeRegisteredPatientFoundamentalDataPanel(), null);
         this.addTab("開藥單", null, getWritePrescriptionPanel(), null);
         this.addTab("寫病歷", null, getWriteCaseHistoryPanel(), null);
+        this.addTab("決定病人住院", null, getDecideHospitalizePanel(), null);
     }
 
     /**
@@ -130,6 +132,19 @@ public class DoctorMainTabbedPane extends JTabbedPane {
             //writeCaseHistoryPanel.setLayout(new GridBagLayout());
         }
         return writeCaseHistoryPanel;
+    }
+
+    /**
+     * This method initializes decideHospitalizePanel	
+     * 	
+     * @return javax.swing.JPanel	
+     */
+    private DecideHospitalizePanel getDecideHospitalizePanel() {
+        if (decideHospitalizePanel == null) {
+            decideHospitalizePanel = new DecideHospitalizePanel();
+            //decideHospitalizePanel.setLayout(new GridBagLayout());
+        }
+        return decideHospitalizePanel;
     }
 
 }  //  @jve:decl-index=0:visual-constraint="10,10"
