@@ -14,8 +14,12 @@ import javax.swing.JButton;
 
 import list.CheckinList;
 import storage.patient.PatientStorage;
+import storage.staff.PatrolNurseStorage;
+import storage.staff.StaffStorage;
 import storage.ward.Sickbed;
 import storage.ward.SickbedStorage;
+import view.patrolnurse.Patrol;
+import view.patrolnurse.PatrolNurseMainView;
 
 public class UnhospitalizePanel extends JPanel {
 
@@ -125,10 +129,14 @@ public class UnhospitalizePanel extends JPanel {
                     } else {
                         Collection<Sickbed> c = SickbedStorage.Instance().values();
                         Iterator<Sickbed> iter = c.iterator();
-                        while (iter.hasNext()) {
-                            Sickbed bed = (Sickbed)iter.next();
+                        while (iter.hasNext()) { // 看每一床是否有人id跟他一樣
+                            Sickbed bed = (Sickbed)iter.next(); // bug:無法出院！
+                            util.Utility.DEBUG(0, "debug: " + bed.number() +"號床有"+bed.patientId());
                             if (bed.patientId().equals(id.getText())) {
                                 bed.checkout();
+                                // 關掉巡診timer
+                                PatrolNurseStorage.Instance().get("sanji").stopLoop();
+                                // show訊息
                                 JOptionPane.showMessageDialog(null, "已經為" + patients.get(id.getText()).id() + "辦好離院手續囉！祝身體健康^^");
                                 return;
                             }

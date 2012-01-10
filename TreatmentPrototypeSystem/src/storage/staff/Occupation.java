@@ -6,5 +6,6 @@ public enum Occupation {
     nurse,
     counterStaff,
     inspector,
-    pharmacist
+    pharmacist,
+    patrolNurse
 }

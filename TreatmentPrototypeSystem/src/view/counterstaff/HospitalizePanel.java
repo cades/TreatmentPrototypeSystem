@@ -15,8 +15,13 @@ import javax.swing.JComboBox;
 import list.CheckinList;
 
 import storage.patient.PatientStorage;
+import storage.staff.PatrolNurse;
+import storage.staff.PatrolNurseStorage;
+import storage.staff.StaffStorage;
 import storage.ward.Sickbed;
 import storage.ward.SickbedStorage;
+import view.patrolnurse.Patrol;
+import view.patrolnurse.PatrolNurseMainView;
 
 public class HospitalizePanel extends JPanel {
 
@@ -161,13 +166,24 @@ public class HospitalizePanel extends JPanel {
                             JOptionPane.showMessageDialog(null, "這位病人並沒有要住院喔！");
                             return;
                         }
+                        Sickbed bed = SickbedStorage.Instance().get(sickbedComboBox.getSelectedItem());
+                        
                         // 更新住院列表
                         CheckinList.Instance().remove(id.getText());
+                        
                         // 更新床位狀態
-                        SickbedStorage.Instance().get(sickbedComboBox.getSelectedItem()).checkin();
+                        bed.checkin(id.getText());
+                        
+                        // 設巡診timer
+                        if (PatrolNurseStorage.Instance().get("sanji") == null) {
+                            JOptionPane.showMessageDialog(null, "sanji護士還沒來上班，沒辦法排巡診喔！抱歉！");
+                        } else {
+                            PatrolNurseStorage.Instance().get("sanji").startLoop(bed);
+                        }
+                        
                         // 秀出成功訊息
-                        JOptionPane.showMessageDialog(null, "成功安排" + id.getText() + "住進" + sickbedComboBox.getSelectedItem() + "號床囉！");
-                        // 這個必須放到最後，不然會出小錯
+                        JOptionPane.showMessageDialog(null, "成功安排" + id.getText() + "住進" + bed.number() + "號床囉！");
+                        
                         refreshComboBox();
                     }
                 }

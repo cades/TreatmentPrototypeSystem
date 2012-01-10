@@ -33,6 +33,9 @@ public class TreatmentPrototypeSystem {
                 Occupation.inspector, "franky", "0000") );
         staffs.put("robin", new Staff("羅賓", "endless-dreaming@hotmail.com",
                 Occupation.pharmacist, "robin", "0000") );
+     
+        staffs.put("sanji", new Staff("香吉士", "endless-dreaming@hotmail.com",
+                Occupation.patrolNurse, "sanji", "0000") );
         
         // 病人班底
         PatientStorage.Instance().put("lufy", new Patient("魯夫", 21, "male", "lufy"));

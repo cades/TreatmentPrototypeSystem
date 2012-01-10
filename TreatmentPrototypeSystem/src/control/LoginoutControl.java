@@ -7,6 +7,7 @@ import view.counterstaff.CounterStaffMainView;
 import view.doctor.DoctorMainView;
 import view.inspector.InspectorMainView;
 import view.nurse.NurseMainView;
+import view.patrolnurse.PatrolNurseMainView;
 import view.pharmacist.PharmacistMainView;
 
 
@@ -49,6 +50,11 @@ public class LoginoutControl {
                     break;
                 case pharmacist:
                     new PharmacistMainView(aStaff).setVisible(true); 
+                    break;
+                case patrolNurse:
+                    util.Utility.DEBUG(0, "" + aStaff.name() + "巡診護士登入, 加入PatrolNurseStorage中");
+                    new PatrolNurseMainView(aStaff).setVisible(true);
+                    PatrolNurseStorage.Instance().put(id, new PatrolNurse(aStaff.name(), aStaff.email(), aStaff.occupation(), aStaff.id(), aStaff.password()));
                     break;
                 default:
                     System.out.println("未知的職業 ？！結束程式...");

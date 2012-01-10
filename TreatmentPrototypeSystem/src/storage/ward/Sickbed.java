@@ -17,7 +17,10 @@ public class Sickbed {
     }
     
     public int number() { return number; }
-    public void checkin() { inUse = true; }
+    public void checkin(String pid) {
+        inUse = true;
+        patientId = pid;
+    }
     public void checkout() { inUse = false; }
     public boolean isEmpty() { return !inUse; }
     public String patientId() { return patientId; }
